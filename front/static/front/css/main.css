@@ -66,17 +66,10 @@ textarea {
     margin: 20px auto;
 }
 
-
-
-
-
-
-
-
-
-
-
-
+.right.carousel-control, .left.carousel-control {
+    opacity: 0;
+    filter:alpha(opacity=0); /* IE support */
+}
 
 /* ==========================================================================
    Media Queries
