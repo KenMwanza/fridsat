@@ -63,12 +63,48 @@ textarea {
 
 #front-panel {
     width: 550px;
+    height: 300px;
     margin: 20px auto;
 }
 
 .right.carousel-control, .left.carousel-control {
     opacity: 0;
     filter:alpha(opacity=0); /* IE support */
+}
+
+#search-box {
+    margin: 20px auto;
+    width: 546px;
+}
+
+#mobile-list {
+    margin: 0px auto;
+    width: 900px;
+    padding-left: 100px;
+}
+
+#login-button {
+    float: right;
+    margin-right: 80px;
+}
+
+#left-bar{
+    float: left;
+    width: 350px;
+}
+
+.left-inner-addon input {
+    padding-left: 30px;    
+}
+
+.left-inner-addon {
+    position: relative;
+}
+
+.left-inner-addon i {
+    position: absolute;
+    padding: 10px 12px;
+    pointer-events: none;
 }
 
 /* ==========================================================================
