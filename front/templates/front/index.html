@@ -2,22 +2,14 @@
 {% load staticfiles %}
 {% block content %}
     <div id="left-bar">
-      <a href="/login" id="fridsat-logo"><img src="{% static 'front/img/test/fridsat.png' %}"/></a><br>
-      <em>Your Number One Marketplace for Everything Mobile.</em>
-      <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="#">Buy devices</a></li>
-        <li><a href="#">Sell devices</a></li>
-        <li><a href="#">Batter devices</a></li>
-        <li><a href="#">Make trade-ins</a></li>
-      </ul>
+      <a href="/" id="fridsat-logo"><img src="{% static 'front/img/test/fridsat.png' %}"/></a>
+      <p><em>Your Number One Marketplace for Everything Mobile.</em></p>
+      <button class="btn btn-success">Sell your Phone!</button>
     </div>
     <a href="/login" id="login-button" class="btn btn-success">Login/Register</a>
     <form id="search-box" role="search">
       <div class="input-group">
-        <div class="left-inner-addon">
-          <i class="glyphicon glyphicon-search"></i>
-          <input type="text" class="form-control" placeholder="Search for mobile devices...">
-        </div>
+        <input type="text" class="form-control" placeholder="Search for mobile devices...">
         <span class="input-group-btn">
           <button type="submit" class="btn btn-primary">Go!</button>
         </span>
@@ -59,28 +51,36 @@
     </div><!-- /.carousel -->
         <!-- Example row of columns -->
         <div id="mobile-list" class="row">
-          <div class="col-md-4">
-            <a href="#"><h2><img src="{% static 'front/img/test/ipad-thumb.jpg' %}" height="30" width="30">Tablets</h2></a>
+          <div class="col-md-3">
+            <h2><img src="{% static 'front/img/test/ipad-thumb.jpg' %}" height="30" width="40">Tablets</h2>
             <p><a href="#">iPad 2(140)</a></p>
             <p><a href="#">iPad 2 Minis(50)</a></p>
             <p><a href="#">Samsung Galaxy Tabs(200)</a></p>
             <p><a href="#">HP tablets(12)</a></p>
             <p><a class="btn btn-primary" href="#" role="button">More(1000+) &raquo;</a></p>
           </div>
-          <div class="col-md-4">
-            <a href="3"><h2><img src="{% static 'front/img/test/iPhone5-thumb.jpg' %}" height="30" width="30">Smartphones</h2></a>
+          <div class="col-md-3">
+            <h2><img src="{% static 'front/img/test/iPhone5-thumb.jpg' %}" height="30" width="40">Smartphones</h2>
             <p><a href="#">iPhone 5s(100)</a></p>
             <p><a href="#">iPhone 4s(50)</a></p>
             <p><a href="#">Samsung Galaxy Note 5(3)</a></p>
             <p><a href="#">Blackberry Torch(74)</a></p>
             <p><a class="btn btn-primary" href="#" role="button">More(4,000+) &raquo;</a></p>
           </div>
-          <div class="col-md-4">
-            <a href="#"><h2><img src="{% static 'front/img/test/feature-thumb.jpg' %}" height="30" width="30">Feature Phones</h2></a>
+          <div class="col-md-3">
+            <h2><img src="{% static 'front/img/test/feature-thumb.jpg' %}" height="30" width="40">Feature Phones</h2>
             <p><a href="#">Nokia Asha(1000)</a></p>
             <p><a href="#">Infinix 234(500)</a></p>
             <p><a href="#">Huawei Blade(300)</a></p>
             <p><a href="#">Techno Blue(2000)</a></p>
+            <p><a class="btn btn-primary" href="#" role="button">More(10,000+) &raquo;</a></p>
+          </div>
+          <div class="col-md-3">
+            <h2><img src="{% static 'front/img/test/ear-thumb.png' %}" height="30" width="40">Accessories</h2>
+            <p><a href="#">Beats by Dre Earphones</a></p>
+            <p><a href="#">Leather Cases</a></p>
+            <p><a href="#">Wireless Headsets</a></p>
+            <p><a href="#">Batteries</a></p>
             <p><a class="btn btn-primary" href="#" role="button">More(10,000+) &raquo;</a></p>
           </div>
         </div>

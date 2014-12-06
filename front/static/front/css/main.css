@@ -79,8 +79,8 @@ textarea {
 
 #mobile-list {
     margin: 0px auto;
-    width: 900px;
-    padding-left: 100px;
+    width: 990px;
+    padding-left: 50px;
 }
 
 #login-button {
@@ -91,20 +91,6 @@ textarea {
 #left-bar{
     float: left;
     width: 350px;
-}
-
-.left-inner-addon input {
-    padding-left: 30px;    
-}
-
-.left-inner-addon {
-    position: relative;
-}
-
-.left-inner-addon i {
-    position: absolute;
-    padding: 10px 12px;
-    pointer-events: none;
 }
 
 /* ==========================================================================
