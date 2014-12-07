@@ -8,7 +8,7 @@
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{% block title %}Fridsat{% endblock %}</title>
+        <title>{% block title %}{% endblock %} &raquo; Fridsat</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -21,6 +21,20 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+    <div id="left-bar">
+      <a href="{% url 'front:index' %}" id="fridsat-logo"><img src="{% static 'front/img/test/fridsat.png' %}"/></a><br>
+      <em>Your Number One Marketplace for Everything Mobile.</em>
+      <p><a href="{% url 'front:post' %}" class="btn btn-success btn-lg"><i class="glyphicon glyphicon-bullhorn"></i> Sell Your Phone!</a></p>
+    </div>
+    <a href="/login" id="login-button" class="btn btn-success">Login/Register</a>
+    <form id="search-box" role="search">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for mobile devices...">
+        <span class="input-group-btn">
+          <button type="submit" class="btn btn-primary">Go!</button>
+        </span>
+      </div>
+    </form>
 
         {% block content %}{% endblock %}
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

@@ -90,6 +90,7 @@ textarea {
 
 #left-bar{
     float: left;
+    padding-left: 10px;
     width: 350px;
 }
 
