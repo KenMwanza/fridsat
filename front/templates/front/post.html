@@ -1,4 +1,36 @@
 {% extends 'base.html' %}
 {% block title %}Post an ad for your mobile device absolutely free!{% endblock %}
 {% block content %}
+        <div id="choose-device" class="row">
+          <div class="col-md-2">
+          <select class="form-control" name="select">
+            <option value="value1" selected>Device Type</option>
+            <option value="value2">Tablet</option>
+            <option value="value3">Smartphone</option>
+            <option value="value3">Feature Phone</option>
+            <option value="value3">Accessory</option>
+          </select>
+          </div>
+          <div class="col-md-2">
+          <select class="form-control" name="select">
+            <option value="value1" selected>Model</option>
+            <option value="value2">Value 2</option>
+            <option value="value3">Value 3</option>
+          </select>
+          </div>
+          <div class="col-md-2">
+          <select class="form-control" name="select">
+            <option value="value1" selected>Model Type</option>
+            <option value="value2">Value 2</option>
+            <option value="value3">Value 3</option>
+          </select>
+          </div>
+          <div class="col-md-2">
+          <select class="form-control" name="select">
+            <option value="value1" selected>Value 1</option>
+            <option value="value2">Value 2</option>
+            <option value="value3">Value 3</option>
+          </select>
+          </div>
+        </div>
 {% endblock %}
