@@ -8,6 +8,19 @@ textarea {
     color: #222;
 }
 
+input:not([type="checkbox"]) { 
+  outline: none;
+  box-shadow:none !important;
+  border:1px solid #ccc !important;
+}
+
+textarea {
+  outline: none;
+  box-shadow:none !important;
+  border:1px solid #ccc !important;
+  resize: vertical;
+}
+
 html {
     font-size: 1em;
     line-height: 1.4;
@@ -61,6 +74,10 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+.container-fluid {
+    background-color: #ffffff;
+}
+
 #front-panel {
     width: 550px;
     height: 300px;
@@ -73,8 +90,7 @@ textarea {
 }
 
 #search-box {
-    margin: 20px auto;
-    width: 546px;
+    width: 400px;
 }
 
 #mobile-list {
@@ -83,20 +99,13 @@ textarea {
     padding-left: 50px;
 }
 
-#login-button {
-    float: right;
-    margin-right: 80px;
+#publish {
+    margin: 50px auto;
+    width: 700px;
 }
 
-#left-bar{
-    float: left;
-    padding-left: 10px;
-    width: 350px;
-}
-
-#choose-device {
-    margin: 100px auto;
-    width: 1000px;
+.col-md-6 {
+    margin-bottom: 10px;
 }
 
 /* ==========================================================================
