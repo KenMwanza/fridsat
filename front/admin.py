@@ -1,3 +1,5 @@
 from django.contrib import admin
+from front.models import Device, County
 
-# Register your models here.
+admin.site.register(County)
+admin.site.register(Device)

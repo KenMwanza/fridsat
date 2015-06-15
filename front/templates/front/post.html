@@ -94,9 +94,9 @@
                <div class="col-md-6">
           <select class="form-control" name="select">
             <option selected>County</option>
-            <option value="value2">Nairobi</option>
-            <option value="value3">Garissa</option>
-            <option value="value3">Mombasa</option>
+	    {% for county in counties %}
+	    <option value="{{ county.name }}">{{ county.name }}</option>
+	    {% endfor %}
           </select>
         </div>
           <button type="submit" class="btn btn-success btn-md">Publish</button>
