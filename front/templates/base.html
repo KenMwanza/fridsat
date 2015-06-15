@@ -11,7 +11,7 @@
         <title>{% block title %}{% endblock %} &raquo; Fridsat</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        {% block head %}{% endblock %}
         <link rel="stylesheet" href="{% static 'front/css/normalize.min.css' %}">
         <link rel="stylesheet" href="{% static 'front/css/chosen.min.css' %}">
         <link rel="stylesheet" href="{% static 'front/css/main.css' %}">
@@ -70,6 +70,8 @@
         <script src="{% static 'front/js/plugins.js' %}"></script>
         <script src="{% static 'front/js/chosen.jquery.min.js' %}"></script>
         <script src="{% static 'front/js/main.js' %}"></script>
+
+        {% block js %}{% endblock %}
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

@@ -6,6 +6,9 @@ class Device(models.Model):
     brand = models.CharField(max_length=100)
     pub_date = models.DateTimeField(auto_now_add=True)
 
+class Brand(models.Model):
+    name = models.CharField(max_length=20)
+
 class County(models.Model):
     name = models.CharField(max_length=20, unique=True)
 
