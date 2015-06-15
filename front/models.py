@@ -5,3 +5,6 @@ class Device(models.Model):
     category = models.TextField(blank=True, null=True)
     brand = models.TextField()
     pub_date = models.DateTimeField(auto_now_add=True)
+
+class County(models.Model):
+    name = models.TextField()
