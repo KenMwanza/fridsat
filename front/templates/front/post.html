@@ -2,101 +2,94 @@
 {% load staticfiles %}
 {% block title %}Publish an ad for your mobile device absolutely free!{% endblock %}
 {% block head %}
-  <link rel="stylesheet" href="{% static 'front/css/vendor/jQuery-File-Upload/jquery.fileupload.css' %}">
+  <link rel="stylesheet" href="{% static 'front/css/vendor/dropzone.css' %}">
 {% endblock %}
 {% block content %}
-    <div id="publish" class="row panel panel-default">
+    <div id="device-publish" class="row panel panel-default publish">
       <div class="panel-body">
         <form>
           <div class="col-md-12">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Title">
+              <input type="text" class="form-control" placeholder="Title (e.g. Apple iPad2 Air 64 GB)">
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Device name">
+              <input type="text" class="form-control" placeholder="Name (e.g. Samsung Galaxy Trend)">
             </div>
           </div>
-                <div class="col-md-6">
-          <select class="form-control" name="select">
-            <option selected>Brand</option>
-            <option value="Acer">Acer</option>
-            <option value="Apple">Apple</option>
-            <option value="Asus">Asus</option>
-            <option value="Alcatel">Alcatel</option>
-            <option value="BlackBerry">BlackBerry</option>
-            <option value="BLU">BLU</option>
-            <option value="Celkon">Celkon</option>
-            <option value="Gigabyte">Gigabyte</option>
-            <option value="Gionee">Gionee</option>
-            <option value="Huawei">Huawei</option>
-            <option value="Lenovo">Lenovo</option>
-            <option value="LG">LG</option>
-            <option value="Micromax">Micromax</option>
-            <option value="Maxwest">Maxwest</option>
-            <option value="Motorola">Motorola</option>
-            <option value="Nokia">Nokia</option>
-            <option value="NIU">NIU</option>
-            <option value="Lava">Lava</option>
-            <option value="Parla">Parla</option>
-            <option value="Plum">Plum</option>
-            <option value="Prestigio">Prestigio</option>
-            <option value="Pantech">Pantech</option>
-            <option value="Sony">Sony</option>
-            <option value="HTC">HTC</option>
-            <option value="Samsung">Samsung</option>
-            <option value="Spice">Spice</option>
-            <option value="Tecno">Tecno</option>
-            <option value="Toshiba">Toshiba</option>
-            <option value="T-Mobile">T-Mobile</option>
-            <option value="Xiaomi">Xiaomi</option>
-            <option value="XOLO">XOLO</option>
-            <option value="ZTE">ZTE</option>
-          </select>
-        </div>
-        <div class="col-md-6">
-          <select class="form-control" name="select">
-            <option value="value1" selected>Device Category</option>
-            <option value="value2">Tablet</option>
-            <option value="value3">Smartphone</option>
-            <option value="value3">Feature Phone</option>
-            <option value="value3">Accessory</option>
-          </select>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <input class="form-control" type="number" placeholder="Device Price">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Brand (e.g. Nokia, Samsung, etc)">
+            </div>
           </div>
+          <div class="col-md-6">
+            <select class="form-control" name="select">
+              <option value="value1" selected>Device Category</option>
+              <option value="value2">Tablet</option>
+              <option value="value3">Smartphone</option>
+              <option value="value3">Accessory</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input class="form-control number" type="text" placeholder="Device Price">
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <textarea cols="67" rows="5" placeholder="Add Device Description"></textarea>
+            </div>
+          </div>
+        </form>
+        <div class="col-md-12">
+          <form action="/image" class="dropzone">
+            <div class="dz-message" data-dz-message>
+              <span>
+                <p>Drop your phone images here,</p>
+                <p>or click to upload.</p>
+		<p>(Maximum of 6)</p>
+              </span>
+            </div>
+          </form>
         </div>
-      <div class="col-md-12">
-        <div class="form-group">
-          <textarea cols="67" rows="5" placeholder="Add Description"></textarea>
-        </div>
       </div>
-      <div class="col-md-6">
-        <span class="btn btn-default btn-file">
-          Upload Device Image <input type="file">
-        </span>
-      </div>
-      <div class="col-md-6">
-        <select class="form-control" name="select">
-          <option selected>County</option>
-          {% for county in counties %}
-          <option value="{{ county.name }}">{{ county.name }}</option>
-          {% endfor %}
-        </select>
-      </div>
-      <div class="col-md-6">
-        <button type="submit" class="btn btn-success btn-md">Publish</button>
-      </div>
-      </form>
+    </div>
+
+    <div id="contact-publish" class="row panel panel-default publish">
+      <div class="panel-body">
+        <form>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Your name">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Your email">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Your phone number">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <select class="form-control" name="select">
+              <option selected>County</option>
+              {% for county in counties %}
+              <option value="{{ county.name }}">{{ county.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="col-md-6">
+            <button type="submit" class="btn btn-success btn-md">Publish</button>
+          </div>
+        </form>
       </div>
     </div>
 {% endblock %}
 
 {% block js %}
-    <script src="{% static 'front/js/vendor/jQuery-File-Upload/jquery.ui.widget.js' %}"></script>
-    <script src="{% static 'front/js/vendor/jQuery-File-Upload/jquery.iframe-transport.js' %}"></script>
-    <script src="{% static 'front/js/vendor/jQuery-File-Upload/jquery.fileupload.js' %}"></script>
+    <script src="{% static 'front/js/vendor/dropzone.js' %}"></script>
 {% endblock %}
