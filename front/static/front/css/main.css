@@ -155,6 +155,15 @@ textarea {
     border-width: 0;
 }
 
+#panel-accounts {
+    width: 800px;
+    margin: 100px auto;
+}
+
+#col-email-login {
+     border-right: thick double #C2C2C2;
+}
+
 /* ==========================================================================
    Media Queries
    ========================================================================== */
