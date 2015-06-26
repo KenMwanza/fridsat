@@ -54,11 +54,14 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 AUTHENTICATION_BACKENDS = (
+    'social.pipeline.social_auth.associate_by_email',
     'social.backends.facebook.FacebookOAuth2',
     'social.backends.google.GoogleOAuth2',
     'social.backends.twitter.TwitterOAuth',
     'django.contrib.auth.backends.ModelBackend',
 )
+# Social auth settings
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
 # Config settings
 from config import *
