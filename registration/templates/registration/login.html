@@ -29,7 +29,7 @@
 					        <i class="fa fa-facebook"></i>
 							Sign up with Facebook
 					    </a>
-					    <a href="" class="btn btn-block btn-social btn-google">
+					    <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}" class="btn btn-block btn-social btn-google">
 					        <i class="fa fa-google"></i>
 							Sign up with Google
 					    </a>
