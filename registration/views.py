@@ -4,7 +4,10 @@ from django.contrib.auth import logout as auth_logout
 
 @anonymous_required(home_url='/')
 def login(request):
-    return render(request, 'registration/login.html')
+    form = LoginForm()
+    return render(request, 'registration/login.html', {
+    	'form': form,
+    })
 
 def logout(request):
     auth_logout(request)

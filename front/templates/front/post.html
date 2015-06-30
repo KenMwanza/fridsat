@@ -7,29 +7,24 @@
 {% block content %}
     <div id="device-publish" class="row panel panel-default publish">
       <div class="panel-body">
-        <form>
+        <form action="" method="post">
           <div class="col-md-12">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Title (e.g. Apple iPad2 Air 64 GB)">
+              {{ form.title }}
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Name (e.g. Samsung Galaxy Trend)">
+              {{ form.name }}
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Brand (e.g. Nokia, Samsung, etc)">
+              {{ form.brand }}
             </div>
           </div>
           <div class="col-md-6">
-            <select class="form-control" name="select">
-              <option value="value1" selected>Device Category</option>
-              <option value="value2">Tablet</option>
-              <option value="value3">Smartphone</option>
-              <option value="value3">Accessory</option>
-            </select>
+               {{ form.categories }} 
           </div>
           <div class="col-md-6">
             <div class="form-group">

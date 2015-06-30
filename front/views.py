@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from front.forms import PostDeviceForm
+from front.forms import PostDeviceForm, PublishForm
 from front.models import Device, County
 from django.contrib.auth.decorators import login_required
 
@@ -10,15 +10,12 @@ def index(request):
 def publish(request):
     devices = Device.objects.all()
     counties = County.objects.all()
-    brands = []
-    for device in devices:
-        brands.append(device.brand)
 
     if request.method == "POST":
         pass
     else:
-        form = PostDeviceForm()
+        form = PublishForm()
     return render(request, 'front/post.html', {
+        "form": form,
         "devices": devices, 
-        "brands": set(brands),
         "counties": counties})
