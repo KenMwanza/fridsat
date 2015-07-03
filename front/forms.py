@@ -1,5 +1,5 @@
 from django import forms
-from front.models import Device
+from front.models import County, Business
 
 class BaseForm(forms.Form):
     def __init__(self, *args, **kwargs):
@@ -11,23 +11,15 @@ class BaseModelForm(forms.ModelForm):
         kwargs.setdefault('label_suffix', '')  # globally override the Django >=1.6 default of ':'
         super(BaseModelForm, self).__init__(*args, **kwargs)
 
-class PostDeviceForm(BaseModelForm):
-    name = forms.ModelChoiceField(queryset=Device.objects.all(), empty_label="Name")
+class BusinessForm(BaseModelForm):	
+	name = forms.CharField(widget=forms.TextInput(attrs={'class' : 'form-control', 'type':'text', 'placeholder':'Business name'}))
+	category = forms.CharField(widget=forms.TextInput(attrs={'class' : 'form-control', 'type':'text', 'placeholder':'Business category (e.g. Telco, Restaurant, etc.)'}))
+	county = forms.ModelChoiceField(queryset=County.objects.all(), empty_label="County")
+	street_address = forms.CharField(widget=forms.TextInput(attrs={'class' : 'form-control', 'type':'text', 'placeholder':'Street address (e.g. Moi Avenue, Nairobi)'}))
+	email = forms.EmailField(widget=forms.TextInput(attrs={'class' : 'form-control', 'type':'text', 'placeholder':'Business email'}))
+	phone_number = forms.CharField(widget=forms.TextInput(attrs={'class' : 'form-control', 'type':'text', 'placeholder':'Phone number'}))
+	description = forms.CharField(widget=forms.Textarea(attrs={'class':'form-control','rows':2, 'cols': 15, 'placeholder':'Brief description'}))
 
-    class Meta:
-        model = Device
-        fields = ['name']
-
-class PublishForm(BaseForm):
-	CATEGORIES = (
-	('Tablet', 'Tablet'),
-	('Smartphone', 'Smartphone'),
-	('Accessory', 'Accessory'),
-	)
-	
-	title = forms.CharField(widget=forms.TextInput(attrs={'class' : 'form-control', 'type':'text', 'placeholder':'Title (e.g. Apple iPad2 Air 64 GB)'}))
-	name = forms.CharField(widget=forms.TextInput(attrs={'class' : 'form-control', 'type':'text', 'placeholder':'Name (e.g. Samsung Galaxy Trend)'}))
-	brand = forms.CharField(widget=forms.TextInput(attrs={'class' : 'form-control', 'type':'text', 'placeholder':'Brand (e.g. Nokia, Samsung, etc)'}))
-	question_text = forms.CharField(widget=forms.Textarea(attrs={'class':'form-control','rows':2, 'cols': 15}), label="Question")
-	price = forms.CharField(widget=forms.TextInput(attrs={'class' : 'form-control', 'type':'text'}))
-	categories = forms.CharField(widget=forms.Select(choices=CATEGORIES))
+	class Meta:
+		model = Business
+		fields = ['name', 'category', 'county', 'street_address', 'email', 'phone_number', 'description']

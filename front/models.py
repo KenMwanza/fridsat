@@ -7,6 +7,7 @@ class Business(models.Model):
     street_address = models.CharField(max_length=100)
     email = models.EmailField(max_length=70,blank=True)
     phone_number = models.CharField(max_length=25, blank=True)
+    description = models.TextField(blank=True, null=True)
     pub_date = models.DateTimeField(auto_now_add=True)
 
 class County(models.Model):
@@ -14,6 +15,15 @@ class County(models.Model):
 
     class Meta:
         verbose_name_plural = "counties"
+
+    def __unicode__(self):
+        return self.name
+
+class Category(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+
+    class Meta:
+        verbose_name_plural = "categories"
 
     def __unicode__(self):
         return self.name

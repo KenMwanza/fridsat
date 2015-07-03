@@ -10,75 +10,43 @@
         <form action="" method="post">
           <div class="col-md-12">
             <div class="form-group">
-              {{ form.title }}
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
               {{ form.name }}
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              {{ form.brand }}
-            </div>
-          </div>
-          <div class="col-md-6">
-               {{ form.categories }} 
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <input class="form-control number" type="text" placeholder="Device Price">
             </div>
           </div>
           <div class="col-md-12">
             <div class="form-group">
-              <textarea cols="67" rows="5" placeholder="Add Device Description"></textarea>
-            </div>
-          </div>
-        </form>
-        <div class="col-md-12">
-          <form action="/image" class="dropzone">
-            <div class="dz-message" data-dz-message>
-              <span>
-                <p>Drop your phone images here,</p>
-                <p>or click to upload.</p>
-		<p>(Maximum of 6)</p>
-              </span>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <div id="contact-publish" class="row panel panel-default publish">
-      <div class="panel-body">
-        <form>
-          <div class="col-md-6">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Your name">
+              {{ form.category }}
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <input type="email" class="form-control" placeholder="Your email">
+              {{ form.county }}
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+               {{ form.street_address }}
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Your phone number">
+               {{ form.email }} 
             </div>
           </div>
           <div class="col-md-6">
-            <select class="form-control" name="select">
-              <option selected>County</option>
-              {% for county in counties %}
-              <option value="{{ county.name }}">{{ county.name }}</option>
-              {% endfor %}
-            </select>
+            <div class="form-group">
+               {{ form.phone_number }} 
+            </div>
           </div>
-          <div class="col-md-6">
-            <button type="submit" class="btn btn-success btn-md">Publish</button>
+          <div class="col-md-12">
+            <div class="form-group">
+               {{ form.description }} 
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <button type="submit" class="btn btn-success">Submit</button>
+            </div>
           </div>
         </form>
       </div>

@@ -139,20 +139,13 @@ textarea {
     box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
 }
 
+#device-publish {
+    border-top-color: #21E4FF;
+    border-bottom-color: #D9534F;
+}
+
 #device-publish .panel-body {
-    background-image: url('/static/front/img/stripe.png');
-}
-
-#contact-publish .panel-body {
-    background-image: url('/static/front/img/stripe1.png');
-}
-
-.col-md-6 {
-    margin-bottom: 10px;
-}
-
-.dropzone {
-    border-width: 0;
+    background-image: url('/static/front/img/bgbiz.png');
 }
 
 #panel-accounts {
