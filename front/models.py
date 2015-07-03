@@ -1,13 +1,13 @@
 from django.db import models
 
-class Device(models.Model):
+class Business(models.Model):
     name = models.CharField(max_length=20)
-    category = models.CharField(max_length=10, blank=True, null=True)
-    brand = models.CharField(max_length=100)
+    category = models.CharField(max_length=50, blank=False, null=False)
+    county = models.CharField(max_length=20)
+    street_address = models.CharField(max_length=100)
+    email = models.EmailField(max_length=70,blank=True)
+    phone_number = models.CharField(max_length=25, blank=True)
     pub_date = models.DateTimeField(auto_now_add=True)
-
-class Brand(models.Model):
-    name = models.CharField(max_length=20)
 
 class County(models.Model):
     name = models.CharField(max_length=20, unique=True)
