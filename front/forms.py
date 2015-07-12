@@ -1,5 +1,5 @@
 from django import forms
-from front.models import County, Business
+from front.models import County, Business, Category
 
 class BaseForm(forms.Form):
     def __init__(self, *args, **kwargs):
@@ -13,7 +13,7 @@ class BaseModelForm(forms.ModelForm):
 
 class BusinessForm(BaseModelForm):	
 	name = forms.CharField(widget=forms.TextInput(attrs={'class' : 'form-control', 'type':'text', 'placeholder':'Business name'}))
-	category = forms.CharField(widget=forms.TextInput(attrs={'class' : 'form-control', 'type':'text', 'placeholder':'Business category (e.g. Telco, Restaurant, etc.)'}))
+	category = forms.ModelChoiceField(queryset=Category.objects.all(), empty_label="Category")
 	county = forms.ModelChoiceField(queryset=County.objects.all(), empty_label="County")
 	street_address = forms.CharField(widget=forms.TextInput(attrs={'class' : 'form-control', 'type':'text', 'placeholder':'Street address (e.g. Moi Avenue, Nairobi)'}))
 	email = forms.EmailField(widget=forms.TextInput(attrs={'class' : 'form-control', 'type':'text', 'placeholder':'Business email'}))

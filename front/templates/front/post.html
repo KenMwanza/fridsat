@@ -1,45 +1,60 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-{% block title %}Publish an ad for your mobile device absolutely free!{% endblock %}
+{% block title %}Add a Business{% endblock %}
 {% block head %}
   <link rel="stylesheet" href="{% static 'front/css/vendor/dropzone.css' %}">
 {% endblock %}
 {% block content %}
     <div id="device-publish" class="row panel panel-default publish">
       <div class="panel-body">
+      {% if form.errors %}
+          {% for field in form %}
+              {% for error in field.errors %}
+                  <div class="alert alert-danger">
+                      <strong>{{ error|escape }}</strong>
+                  </div>
+              {% endfor %}
+          {% endfor %}
+          {% for error in form.non_field_errors %}
+              <div class="alert alert-danger">
+                  <strong>{{ error|escape }}</strong>
+              </div>
+          {% endfor %}
+      {% endif %}
         <form action="" method="post">
+        {% csrf_token %}
           <div class="col-md-12">
-            <div class="form-group">
+            <div class="form-group {% if form.name.errors %} alert alert-danger {% endif %}">
               {{ form.name }}
             </div>
           </div>
-          <div class="col-md-12">
-            <div class="form-group">
+          <div class="col-md-6">
+            <div class="form-group {% if form.category.errors %} alert alert-danger {% endif %}">
               {{ form.category }}
             </div>
           </div>
           <div class="col-md-6">
-            <div class="form-group">
+            <div class="form-group {% if form.county.errors %} alert alert-danger {% endif %}">
               {{ form.county }}
             </div>
           </div>
           <div class="col-md-12">
-            <div class="form-group">
+            <div class="form-group {% if form.street_address.errors %} alert alert-danger {% endif %}">
                {{ form.street_address }}
             </div>
           </div>
           <div class="col-md-6">
-            <div class="form-group">
+            <div class="form-group {% if form.email.errors %} alert alert-danger {% endif %}">
                {{ form.email }} 
             </div>
           </div>
           <div class="col-md-6">
-            <div class="form-group">
+            <div class="form-group {% if form.phone_number.errors %} alert alert-danger {% endif %}">
                {{ form.phone_number }} 
             </div>
           </div>
           <div class="col-md-12">
-            <div class="form-group">
+            <div class="form-group {% if form.description.errors %} alert alert-danger {% endif %}">
                {{ form.description }} 
             </div>
           </div>

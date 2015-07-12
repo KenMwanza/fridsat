@@ -1,7 +1,7 @@
 from django.db import models
 
 class Business(models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=200)
     category = models.CharField(max_length=50, blank=False, null=False)
     county = models.CharField(max_length=20)
     street_address = models.CharField(max_length=100)
@@ -9,6 +9,12 @@ class Business(models.Model):
     phone_number = models.CharField(max_length=25, blank=True)
     description = models.TextField(blank=True, null=True)
     pub_date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = "businesses"
+
+    def __unicode__(self):
+        return self.name
 
 class County(models.Model):
     name = models.CharField(max_length=20, unique=True)
