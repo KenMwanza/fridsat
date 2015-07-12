@@ -14,6 +14,9 @@ def index(request):
         }
     )
 
+def category(request):
+    return render(request, 'front/category.html')
+
 @login_required(login_url='/login/')
 def publish(request):
     if request.method == "POST":

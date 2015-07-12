@@ -27,6 +27,7 @@ class County(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=50, unique=True)
+    slug = models.SlugField(max_length=1000, blank=True, null=True)
 
     class Meta:
         verbose_name_plural = "categories"
