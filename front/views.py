@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from front.forms import BusinessForm
-from front.models import Category, County
+from front.models import Business, Category, County
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
@@ -14,8 +14,15 @@ def index(request):
         }
     )
 
-def category(request):
-    return render(request, 'front/category.html')
+def category(request, slug):
+    category = get_object_or_404(Category, slug=slug)
+    businesses = Business.objects.all().filter(category=category)
+    return render(request, 'front/category.html',
+        {
+            'category': category,
+            'businesses': businesses,
+        }
+    )
 
 @login_required(login_url='/login/')
 def publish(request):

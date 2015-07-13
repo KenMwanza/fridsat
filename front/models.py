@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.defaultfilters import slugify
 
 class Business(models.Model):
     name = models.CharField(max_length=200)
@@ -34,3 +35,13 @@ class Category(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            # Newly created object, so set slug
+            self.slug = slugify(self.name)
+
+        super(Category, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return "/category/%s/" % (self.slug)

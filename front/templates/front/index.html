@@ -32,7 +32,7 @@
             <ul class="list-unstyled">
               <h2>Browse by Category</h2>
               {% for category in categories %}
-              <li><a href="{% url 'front:category' %}">{{ category }}</a></li>
+              <li><a href="{{ category.get_absolute_url }}">{{ category }}</a></li>
               {% endfor %}
             </ul>
           </div>

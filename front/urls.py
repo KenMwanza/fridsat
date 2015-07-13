@@ -5,5 +5,5 @@ urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
     url(r'^home$', views.index, name='home'),
     url(r'^publish/$', views.publish, name='publish'),
-    url(r'^category/$', views.category, name='category'),
+    url(r'^category/(?P<slug>[\w-]+)/$', views.category, name='category'),
 )
