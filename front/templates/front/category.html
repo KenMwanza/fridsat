@@ -1,43 +1,22 @@
 {% extends 'base.html' %}
 {% block title %}{{ category }}{% endblock %}
 {% block content %}
-<div class="panel panel-default info-panel">
-  <div class="panel-body">
-	<ul class="list-unstyled">
-	{% for business in businesses %}
-	    <li>
-	    	<p>{{ business.name }}</p>
-	    	<p>{{ business.county }} County</p>
-	    	<p>{{ business.street_address }}</p>
-	    	<p>{{ business.email }}</p>
-	    </li>
-	{% empty %}
-	    <li>Sorry, no businesses under "{{ category }}".</li>
-	{% endfor %}
-	</ul>
-  </div>
-</div>
-<div class="card">
-   <div class="card-heading image">
-      <img src="holder.js/46x46" alt=""/>
-      <div class="card-heading-header">
-         <h3>Simple News Card</h3>
-         <span>Published today - 08.34 AM</span>
-      </div>
-   </div>
-   <div class="card-body">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua.
-      </p>
-   </div>
-   <div class="card-media">
-      <a class="card-media-container" href="#">
-         <img src="holder.js/500x300/social" alt="media"/>
-      </a>
-   </div>
-   <div class="card-actions">
-      <button class="btn">+1</button>
-      <button class="btn">Share</button>
-   </div>
-</div>
+		{% for business in businesses %}
+			<div class="panel panel-default info-panel">
+			  <div class="panel-body">
+			  	<div class="row">
+			  		<div class="col-md-2">
+			  			<img src="http://images.prd.mris.com/image/V2/1/Yu59d899Ocpyr_RnF0-8qNJX1oYibjwp9TiLy-bZvU9vRJ2iC1zSQgFwW-fTCs6tVkKrj99s7FFm5Ygwl88xIA.jpg" alt="..." width="100" height="105" class="img-circle">
+			  		</div>
+			  		<div class="col-md-10">
+					    <h4><b>{{ business.name }}</b></h4>
+					    {{ business.county }} County | {{ business.street_address }} | {{ business.email }}
+					    <p class="hidden-xs">{{ business.description|truncatechars:100 }}</p>
+					</div>
+				</div>
+			  </div>
+			</div>
+		{% empty %}
+		    Sorry, no business listings under "{{ category }}".
+		{% endfor %}
 {% endblock %}

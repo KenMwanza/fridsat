@@ -3,46 +3,6 @@
 {% block title %}Business Directory, Reviews and Ratings in Kenya{% endblock %}
 {% block content %}
         <div id="front-panel" class="panel panel-default">
-         <div class="col-md-4">
-         </div>
-          <div class="col-md-4">
-            <p><a href="#">iPhone 5s(100)</a></p>
-            <p><a href="#">iPhone 4s(50)</a></p>
-            <p><a href="#">Samsung Galaxy Note 5(3)</a></p>
-            <p><a href="#">Blackberry Torch(74)</a></p>
-          </div>
-          <div class="col-md-4">
-            <p><a href="#">Beats by Dre Earphones</a></p>
-            <p><a href="#">Leather Cases</a></p>
-            <p><a href="#">Wireless Headsets</a></p>
-            <p><a href="#">Batteries</a></p>
-          </div>
-        </div><!-- /.carousel -->
-        <!-- Example row of columns -->
-        <div id="mobile-list" class="row">
-          <div class="col-md-4">
-            <h2><img src="{% static 'front/img/test/ipad-thumb.jpg' %}" height="30" width="40">Tablets</h2>
-            <p><a href="#">iPad 2(140)</a></p>
-            <p><a href="#">iPad 2 Minis(50)</a></p>
-            <p><a href="#">Samsung Galaxy Tabs(200)</a></p>
-            <p><a href="#">HP tablets(12)</a></p>
-            <p><a class="btn btn-primary" href="#" role="button">More(1000+) &raquo;</a></p>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-unstyled">
-              <h2>Browse by Category</h2>
-              {% for category in categories %}
-              <li><a href="{{ category.get_absolute_url }}">{{ category }}</a></li>
-              {% endfor %}
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-unstyled">
-              <h2>Browse by County</h2>
-              {% for county in counties %}
-              <li><a href="#">{{ county }}</a></li>
-              {% endfor %}
-            </ul>
-          </div>
+          <h1>Best Rated Companies in Kenya</h1>
         </div>
 {% endblock %}
