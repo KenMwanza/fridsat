@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
-{% block title %}{{ category }}{% endblock %}
+{% block title %}
+	{% if category %}{{ category }}{% endif %}
+	{% if county %}{{county}}{% endif %}
+{% endblock %}
 {% block content %}
 		{% for business in businesses %}
 			<div class="panel panel-default info-panel">
@@ -17,6 +20,6 @@
 			  </div>
 			</div>
 		{% empty %}
-		    Sorry, no business listings under "{{ category }}".
+		    Sorry, no business listings under <i>{% if category %}{{ category }}{% endif %}{% if county %}{{ county }}{% endif %}</i>.
 		{% endfor %}
 {% endblock %}

@@ -17,10 +17,20 @@ def index(request):
 def category(request, slug):
     category = get_object_or_404(Category, slug=slug)
     businesses = Business.objects.all().filter(category=category)
-    return render(request, 'front/category.html',
+    return render(request, 'front/businesses.html',
         {
             'category': category,
             'businesses': businesses,
+        }
+    )
+
+def county(request, name):
+    county = get_object_or_404(County, name=name)
+    businesses = Business.objects.all().filter(county=county)
+    return render(request, 'front/businesses.html',
+        {
+            'businesses': businesses,
+            'county': county,
         }
     )
 

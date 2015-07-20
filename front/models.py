@@ -26,6 +26,9 @@ class County(models.Model):
     def __unicode__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return "/county/%s/" % (self.name)
+
 class Category(models.Model):
     name = models.CharField(max_length=50, unique=True)
     slug = models.SlugField(max_length=1000, blank=True, null=True)
