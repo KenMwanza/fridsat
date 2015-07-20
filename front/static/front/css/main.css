@@ -78,6 +78,18 @@ textarea {
     background-color: #ffffff;
 }
 
+#mini-nav {
+    width: 70%;
+    margin: 0 auto;
+    border-left: none;
+    border-right: none;
+}
+
+.scrollable-menu {
+    max-height: 200px;
+    overflow-x: auto;
+}
+
 #front-panel {
     width: 550px;
     height: 300px;
@@ -89,6 +101,11 @@ textarea {
   #front-panel {
     width: 100%; 
   } 
+}
+
+.info-panel {
+    margin: 10px auto;
+    width: 70%;
 }
 
 .right.carousel-control, .left.carousel-control {
@@ -161,6 +178,12 @@ textarea {
 #set-password {
     width: 200px;
     margin: 0 auto;
+}
+
+@media (min-width: 979px) {
+  ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;
+  }
 }
 
 /* ==========================================================================
