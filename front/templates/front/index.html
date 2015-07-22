@@ -1,8 +1,51 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% block head %}
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+{% endblock %}
 {% block title %}Business Directory, Reviews and Ratings in Kenya{% endblock %}
 {% block content %}
-        <div id="front-panel" class="panel panel-default">
+        <!--<div id="jumbotron-panel" class="panel panel-default">
           <h1>Best Rated Companies in Kenya</h1>
-        </div>
+        </div>-->
+        <div id="links-panel">
+          <div class="row">
+          	<div class="col-md-3">
+          		<a href="#"><i class="fa fa-mortar-board fa-4x"></i></a>
+          	</div>
+          	<div class="col-md-3">
+          		<a href="#"><i class="fa fa-bus fa-4x"></i></a>
+          	</div>
+          	<div class="col-md-3">
+          		<a href="#"><i class="fa fa-institution fa-4x"></i></a>
+          	</div>
+          	<div class="col-md-3">
+          		<a href="#"><i class="fa fa-desktop fa-4x"></i></a>
+          	</div>
+          	<div class="col-md-3">
+          		<a href="#"><i class="fa fa-hotel fa-4x"></i></a>
+          	</div>
+          	<div class="col-md-3">
+          		<a href="#"><i class="fa fa-legal fa-4x"></i></a>
+          	</div>
+          	<div class="col-md-3">
+          		<a href="#"><i class="fa fa-coffee fa-4x"></i></a>
+          	</div>
+          	<div class="col-md-3">
+          		<a href="#"><i class="fa fa-beer fa-4x"></i></a>
+          	</div>
+          	<div class="col-md-3">
+          		<a href="#"><i class="fa fa-cart-arrow-down fa-4x"></i></a>
+          	</div>
+          	<div class="col-md-3">
+          		<a href="#"><i class="fa fa-binoculars fa-4x"></i></a>
+          	</div>
+          	<div class="col-md-3">
+          		<a href="#"><i class="fa fa-cutlery fa-4x"></i></a>
+          	</div>
+          	<div class="col-md-3">
+          		<a href="#"><i class="fa fa-mobile fa-4x"></i></a>
+          	</div>
+          </div>
+        </div>      
 {% endblock %}
