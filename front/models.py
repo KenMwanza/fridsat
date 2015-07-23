@@ -9,6 +9,7 @@ class Business(models.Model):
     email = models.EmailField(max_length=70,blank=True)
     phone_number = models.CharField(max_length=25, blank=True)
     description = models.TextField(blank=True, null=True)
+    slug = models.SlugField(max_length=1000, blank=True, null=True)
     pub_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -17,8 +18,19 @@ class Business(models.Model):
     def __unicode__(self):
         return self.name
 
+    def save(self, *args, **kwargs):
+        if not self.id:
+            # Newly created object, so set slug
+            self.slug = slugify(self.name)
+
+        super(Business, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return "/%s/" % (self.slug)
+
 class County(models.Model):
     name = models.CharField(max_length=20, unique=True)
+    slug = models.SlugField(max_length=1000, blank=True, null=True)
 
     class Meta:
         verbose_name_plural = "counties"
@@ -26,8 +38,15 @@ class County(models.Model):
     def __unicode__(self):
         return self.name
 
+    def save(self, *args, **kwargs):
+        if not self.id:
+            # Newly created object, so set slug
+            self.slug = slugify(self.name)
+
+        super(County, self).save(*args, **kwargs)
+
     def get_absolute_url(self):
-        return "/county/%s/" % (self.name)
+        return "/county/%s/" % (self.slug)
 
 class Category(models.Model):
     name = models.CharField(max_length=50, unique=True)

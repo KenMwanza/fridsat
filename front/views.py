@@ -24,8 +24,16 @@ def category(request, slug):
         }
     )
 
-def county(request, name):
-    county = get_object_or_404(County, name=name)
+def business(request, slug):
+    business = get_object_or_404(Business, slug=slug)
+    return render(request, 'front/business.html',
+        {
+            'business': business,
+        }
+    )
+
+def county(request, slug):
+    county = get_object_or_404(County, slug=slug)
     businesses = Business.objects.all().filter(county=county)
     return render(request, 'front/businesses.html',
         {
@@ -35,7 +43,7 @@ def county(request, name):
     )
 
 @login_required(login_url='/login/')
-def publish(request):
+def add_business(request):
     if request.method == "POST":
         form = BusinessForm(request.POST)
         if form.is_valid():
