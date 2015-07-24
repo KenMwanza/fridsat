@@ -2,11 +2,13 @@
 {% block title %}{{ business }}{% endblock %}
 {% block content %}
 <div class="panel panel-default info-panel">
-  <div class="panel-body">
-    <img src="/static/front/img/BusinessIntelligence.png" width="767" class="img-rounded" alt="Rounded Image">
-    <h1>{{ business }}</h1>
-    <p>{{ business.description }}</p>
-    <kbd>{{ business.phone_number }}</kbd>
-  </div>
-</div>
+  	<div class="panel-body">
+    	<img src="/static/front/img/BusinessIntelligence.png" width="767" class="img-rounded" alt="Rounded Image">
+    	<div id="info-business">
+    		<h1>{{ business }}</h1>
+    		<p>{{ business.description }}</p>
+    		<kbd>{{ business.phone_number }}</kbd> <i>{{ business.email }}</i>
+  		</div>
+  	</div>
+ </div>
 {% endblock %}
