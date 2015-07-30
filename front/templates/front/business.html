@@ -2,30 +2,26 @@
 {% load comments %}
 {% block title %}{{ business }}{% endblock %}
 {% block content %}
-<div class="panel panel-default info-panel">
-  	<div class="panel-body">
-    	<img src="/static/front/img/BusinessIntelligence.png" width="767" class="img-rounded" alt="Rounded Image">
-    	<div id="info-business">
-    		<h1>{{ business }}</h1>
-    		<p>{{ business.description }}</p>
-    		<kbd>{{ business.phone_number }}</kbd> <i>{{ business.email }}</i>
-  		</div>
-  		{% get_comment_form for business as form %}
-		<table>
-		  <form action="{% comment_form_target %}" method="post">
-		    {% csrf_token %}
-		    {{ form }}
-		    <tr>
-		      <td colspan="2">
-		        <input type="submit" name="submit" value="Post">
-		        <input type="submit" name="preview" value="Preview">
-		      </td>
-		    </tr>
-		  </form>
-		</table>
-  	</div>
- </div>
- <div id="comment-div">
- {% render_comment_list for business %}
- </div>
+	<div class="panel panel-default info-panel">
+	  	<div class="panel-body">
+	    	<img src="/static/front/img/BusinessIntelligence.png" width="767" class="img-rounded" alt="Rounded Image">
+	    	<div id="info-business">
+	    		<h1>{{ business }}</h1>
+	    		<p>{{ business.description }}</p>
+	    		<kbd>{{ business.phone_number }}</kbd> <i>{{ business.email }}</i>
+	  		</div>
+	  	</div>
+	</div>
+ 	<div class="comment-div">
+    	{% get_comment_form for business as form %}
+		<form action="{% comment_form_target %}" method="post">
+		{% csrf_token %}
+		{{ form }}
+		    <input type="submit" class="btn btn-sm btn-info" name="submit" value="Post">
+		    <input type="submit" class="btn btn-sm btn-warning" name="preview" value="Preview">
+		</form>
+ 	</div>
+	<div class="comment-div">
+	{% render_comment_list for business %}
+	</div>
 {% endblock %}

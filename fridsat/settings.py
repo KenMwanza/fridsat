@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'front',
     'registration',
+    'reviews',
     'social.apps.django_app.default',
     'django_comments',
 )
