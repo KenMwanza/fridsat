@@ -23,7 +23,9 @@
 		    </tr>
 		  </form>
 		</table>
-		{% get_comment_count for business as comment_count %}
   	</div>
+ </div>
+ <div id="comment-div">
+ {% render_comment_list for business %}
  </div>
 {% endblock %}

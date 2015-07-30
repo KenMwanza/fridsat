@@ -134,6 +134,13 @@ textarea {
     box-shadow: 1px 1px 0 rgba(0,0,0,.2);
 }
 
+#comment-div {
+    width: 70%;
+    margin: 10px auto;
+    border-right: 2px solid #21E4FF;
+    border-left: 2px solid #21E4FF;
+}
+
 #modal-signup .modal-dialog .modal-content .modal-body p {
     text-align: center; 
     border-bottom: 1px solid #000; 
