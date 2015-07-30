@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load comments %}
 {% block title %}{{ business }}{% endblock %}
 {% block content %}
 <div class="panel panel-default info-panel">
@@ -9,6 +10,20 @@
     		<p>{{ business.description }}</p>
     		<kbd>{{ business.phone_number }}</kbd> <i>{{ business.email }}</i>
   		</div>
+  		{% get_comment_form for business as form %}
+		<table>
+		  <form action="{% comment_form_target %}" method="post">
+		    {% csrf_token %}
+		    {{ form }}
+		    <tr>
+		      <td colspan="2">
+		        <input type="submit" name="submit" value="Post">
+		        <input type="submit" name="preview" value="Preview">
+		      </td>
+		    </tr>
+		  </form>
+		</table>
+		{% get_comment_count for business as comment_count %}
   	</div>
  </div>
 {% endblock %}

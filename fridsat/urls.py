@@ -11,4 +11,5 @@ urlpatterns = patterns('',
     url(r'^', include('front.urls', namespace="front")),
     url(r'^', include('registration.urls', namespace="registration")),
     url('', include('social.apps.django_app.urls', namespace='social')),
+    (r'^comments/', include('django_comments.urls')),
 )

@@ -38,9 +38,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'front',
     'registration',
     'social.apps.django_app.default',
+    'django_comments',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -64,6 +66,8 @@ AUTHENTICATION_BACKENDS = (
 )
 # Social auth settings
 #SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+SITE_ID = 1
 
 # Config settings
 from config import *
