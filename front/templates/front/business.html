@@ -12,16 +12,27 @@
 	  		</div>
 	  	</div>
 	</div>
- 	<div class="comment-div">
-    	{% get_comment_form for business as form %}
-		<form action="{% comment_form_target %}" method="post">
-		{% csrf_token %}
-		{{ form }}
-		    <input type="submit" class="btn btn-sm btn-info" name="submit" value="Post">
-		    <input type="submit" class="btn btn-sm btn-warning" name="preview" value="Preview">
-		</form>
+ 	<div id="comment">
+ 		<h4 class="lead">Your review</h4>
+ 		<div id="response-comment"></div>
+		{% if user.is_authenticated %}
+		    {% get_comment_form for business as form %}
+		    <form id="form-comment" action="{% comment_form_target %}" method="POST">
+		    {% csrf_token %}
+		    {{ form.comment }}
+		    {{ form.honeypot }}
+		    {{ form.content_type }}
+		    {{ form.object_pk }}
+		    {{ form.timestamp }}
+		    {{ form.security_hash }}
+		    <button type="submit" class="btn btn-info btn-sm">Add review</button>
+		    </form>
+		{% else %}
+		    <p>Please <a href="{% url 'registration:login' %}">log in</a> to leave a review.</p>
+		{% endif %}
  	</div>
-	<div class="comment-div">
+	<div class="comments">
 	{% render_comment_list for business %}
+	{{ comment.user.get_profile.firstname }}
 	</div>
 {% endblock %}

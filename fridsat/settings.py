@@ -68,6 +68,8 @@ AUTHENTICATION_BACKENDS = (
 # Social auth settings
 #SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
+COMMENTS_APP = 'reviews'
+
 SITE_ID = 1
 
 # Config settings
