@@ -13,6 +13,7 @@ class BaseModelForm(forms.ModelForm):
 
 class BusinessForm(BaseModelForm):	
 	name = forms.CharField(widget=forms.TextInput(attrs={'class' : 'form-control', 'type':'text', 'placeholder':'Business name'}))
+	image = forms.ImageField(label='Select an image')
 	category = forms.ModelChoiceField(queryset=Category.objects.all(), empty_label="Category")
 	county = forms.ModelChoiceField(queryset=County.objects.all(), empty_label="County")
 	street_address = forms.CharField(widget=forms.TextInput(attrs={'class' : 'form-control', 'type':'text', 'placeholder':'Street address (e.g. Moi Avenue, Nairobi)'}))
