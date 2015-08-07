@@ -9,6 +9,7 @@ class Business(models.Model):
     email = models.EmailField(max_length=70,blank=True)
     phone_number = models.CharField(max_length=25, blank=True)
     description = models.TextField(blank=True, null=True)
+    image = models.ImageField(upload_to='documents/%Y/%m/%d',  blank=True, null=True)
     slug = models.SlugField(max_length=1000, blank=True, null=True)
     pub_date = models.DateTimeField(auto_now_add=True)
 
