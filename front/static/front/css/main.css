@@ -74,17 +74,12 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-.container-fluid {
-    background-color: #ffffff;
+body {
+    background-color: #F7F7F7;
 }
 
-#mini-nav {
-    width: 70%;
-    margin: 0 auto;
-    border-left: none;
-    border-right: none;
-    border-top-color: #21E4FF;
-    border-bottom-color: #D9534F;
+.container-fluid {
+    background-color: #ffffff;
 }
 
 .scrollable-menu {
@@ -130,8 +125,9 @@ textarea {
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px;
-    -webkit-box-shadow: 1px 1px 0 rgba(0,0,0,.2);
-    box-shadow: 1px 1px 0 rgba(0,0,0,.2);
+    background: #FFF none repeat scroll 0% 0%;
+    border: 1px solid #DDD;
+    box-sizing: border-box;
 }
 
 .comments {
@@ -212,11 +208,19 @@ textarea {
 }
 
 #footer {
-    background:#44B78B;
     width:100%;
     height:150px;
     bottom:0;
     left: 0;
+    background: #F7F7F7;
+    border-right: 1px solid #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+    border-left: 1px solid #C9C1C1;
+    border-top: 1px solid #C9C1C1;
+}
+
+#footer .row div {
+    text-align: center;
 }
 
 .publish {
