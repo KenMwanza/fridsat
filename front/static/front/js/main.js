@@ -27,9 +27,9 @@ function bindPostCommentHandler() {
             success: function(html, textStatus) {
                 $('#response-comment').replaceWith(html);
                 bindPostCommentHandler();
-                $('#id_comment').val('');
                 var comment = $('#id_comment').val();
-                $('#comments').append(comment);
+                $('#id_comment').val('');
+                $('.comments #comments').prepend('<dd>' + '<p>' + comment + '</p>' + '</dd>');
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 $('#response-comment').replaceWith('Your comment was unable to be posted at this time.  We apologise for the inconvenience.');
