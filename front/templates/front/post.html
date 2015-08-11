@@ -21,7 +21,7 @@
               </div>
           {% endfor %}
       {% endif %}
-        <form action="" method="post">
+        <form action="" enctype='multipart/form-data' method="post">
         {% csrf_token %}
           <div class="col-md-12">
             <div class="form-group {% if form.name.errors %} alert alert-danger {% endif %}">
@@ -60,7 +60,9 @@
           </div>
           <div class="col-md-12">
             <div class="form-group {% if form.image.errors %} alert alert-danger {% endif %}">
+              <div class="image-upload btn btn-default">
                {{ form.image }} 
+              </div>
             </div>
           </div>
           <div class="col-md-12">

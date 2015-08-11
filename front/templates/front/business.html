@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 {% load comments %}
+{% block head %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{% static 'accounts/css/vendor/bootstrap-social.css' %}">
+{% endblock %}
 {% block title %}{{ business }}{% endblock %}
 {% block content %}
 	<div class="panel panel-default info-panel">
@@ -12,7 +17,7 @@
 	    	<div id="info-business">
 	    		<h1>{{ business }}</h1>
 	    		<p>{{ business.description }}</p>
-	    		<kbd>{{ business.phone_number }}</kbd> <i>{{ business.email }}</i>
+	    		<kbd><i class="fa fa-phone"></i> {{ business.phone_number }}</kbd> <kbd><i class="fa fa-envelope-o"></i> {{ business.email}}</kbd> <kbd><i class="fa fa-street-view"></i> {{ business.street_address}}</kbd>
 	  		</div>
 	  	</div>
 	</div>

@@ -133,13 +133,27 @@ body {
 .comments {
     width: 70%;
     margin: 10px auto;
-    border-right: 2px solid #21E4FF;
-    border-left: 2px solid #21E4FF;
 }
 
 #comment {
     width: 70%;
     margin: 10px auto;
+}
+
+#comments dd p {
+  position:relative;
+  padding:15px;
+  margin:1em 0 3em;
+  color:#fff;
+  background:#075698; /* default background for browsers without gradient support */
+  /* css3 */
+  background:-webkit-gradient(linear, 0 0, 0 100%, from(#2e88c4), to(#075698));
+  background:-moz-linear-gradient(#2e88c4, #075698);
+  background:-o-linear-gradient(#2e88c4, #075698);
+  background:linear-gradient(#2e88c4, #075698);
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
 }
 
 #id_comment {
@@ -200,7 +214,6 @@ body {
     width: 990px;
     padding-left: 50px;
 }
-
 @media only screen and (min-width: 320px) and (max-width : 480px) {
   #mobile-list {
     width: 100%; 
@@ -212,7 +225,7 @@ body {
     height:150px;
     bottom:0;
     left: 0;
-    background: #F7F7F7;
+    background-image: url('/static/front/img/concrete_seamless.png');
     border-right: 1px solid #FFFFFF;
     border-bottom: 1px solid #FFFFFF;
     border-left: 1px solid #C9C1C1;
@@ -234,10 +247,6 @@ body {
 #device-publish {
     border-top-color: #21E4FF;
     border-bottom-color: #D9534F;
-}
-
-#device-publish .panel-body {
-   /* background-image: url('/static/front/img/bgbiz.png');*/
 }
 
 #panel-accounts {

@@ -46,7 +46,7 @@ def county(request, slug):
 @login_required(login_url='/login/')
 def add_business(request):
     if request.method == "POST":
-        form = BusinessForm(request.POST)
+        form = BusinessForm(request.POST, request.FILES)
         if form.is_valid():
             business = form.save(commit=False)
             cd = form.cleaned_data
@@ -55,10 +55,11 @@ def add_business(request):
             business.county = cd['county']
             business.street_address = cd['street_address']
             business.email = cd['email']
+            business.image = cd['image']
             business.phone_number = cd['phone_number']
             business.description = cd['description']
             business.save()
-            return HttpResponseRedirect('/home')
+            return HttpResponseRedirect('/' + business.slug)
     else:
         form = BusinessForm()
     return render(request, 'front/post.html', {
