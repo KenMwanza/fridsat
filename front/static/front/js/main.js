@@ -18,16 +18,16 @@ $(document).ready(function() {
     $(".vote_form").submit(function(e) 
     {
         e.preventDefault(); 
-        var btn = $(".approve", this);
+        var btn = $(".upvote span");
         var l_id = $(".hidden_id", this).val();
         btn.attr('disabled', true);
         $.post("/reviews/vote/", $(this).serializeArray(),
         function(data) {
             if(data["voteobj"]) {
-          btn.text("Downvote");
+                btn.text("Downvote");
             }
             else {
-          btn.text("Upvote");
+                btn.text("Upvote");
             }
         });
         btn.attr('disabled', false);
