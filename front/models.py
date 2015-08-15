@@ -1,5 +1,12 @@
 from django.db import models
+from django.db.models import Count
 from django.template.defaultfilters import slugify
+
+class BusinessVoteCountManager(models.Manager):
+    def get_queryset(self):
+        return super(BusinessVoteCountManager,
+self).get_queryset().annotate(
+        votes=Count('vote')).order_by('-rank_score', '-votes')
 
 class Business(models.Model):
     name = models.CharField(max_length=200)
@@ -12,6 +19,10 @@ class Business(models.Model):
     image = models.ImageField(upload_to='documents/%Y/%m/%d',  blank=True, null=True)
     slug = models.SlugField(max_length=1000, blank=True, null=True)
     pub_date = models.DateTimeField(auto_now_add=True)
+
+    with_votes = BusinessVoteCountManager()
+    objects = models.Manager() #default manager
+
 
     class Meta:
         verbose_name_plural = "businesses"

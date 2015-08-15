@@ -14,6 +14,24 @@ $(document).ready(function() {
 	  	});
 	});
 	bindPostCommentHandler();
+
+    $(".vote_form").submit(function(e) 
+    {
+        e.preventDefault(); 
+        var btn = $(".approve", this);
+        var l_id = $(".hidden_id", this).val();
+        btn.attr('disabled', true);
+        $.post("/reviews/vote/", $(this).serializeArray(),
+        function(data) {
+            if(data["voteobj"]) {
+          btn.text("Downvote");
+            }
+            else {
+          btn.text("Upvote");
+            }
+        });
+        btn.attr('disabled', false);
+    });
 });
 
 function bindPostCommentHandler() {

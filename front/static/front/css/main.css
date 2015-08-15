@@ -119,6 +119,10 @@ body {
     text-align: center;
 }
 
+.upvote {
+    margin-top: 10px;
+}
+
 .info-panel {
     margin: 10px auto;
     width: 70%;
@@ -203,10 +207,6 @@ body {
 .right.carousel-control, .left.carousel-control {
     opacity: 0;
     filter:alpha(opacity=0); /* IE support */
-}
-
-#search-box {
-    width: 400px;
 }
 
 #mobile-list {

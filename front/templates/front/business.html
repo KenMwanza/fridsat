@@ -15,8 +15,22 @@
 	    	{% else %}
 	    	<img src="/static/front/img/placeholder-640x480.png" height="400" width="767" class="img-rounded" alt="Rounded Image">
 	    	{% endif %}
-	    	<div class="ratings"></div>
+
 	    	<div id="info-business" class="row">
+	    		<div class="col-md-12">
+	    			<form method="post" action="{% url 'reviews:vote' %}" class="vote_form" role="form">
+      				{% csrf_token %}
+        				<input type="hidden" id="id_business" name="business" class="hidden_id" value="{{ business.pk }}" />
+        				<input type="hidden" id="id_voter" name="voter" class="hidden_id" value="{{ user.pk }}" />
+        			{% if not user.is_authenticated %}
+          				<button class="btn btn-sm btn-success upvote" title="Please log in to vote"><i class="fa fa-thumbs-o-up"></i></button>
+        				{% elif business.pk not in voted %}
+          				<button class="btn btn-sm btn-success upvote"><i class="fa fa-thumbs-up"></i></button>
+        			{% else %}
+            			<button class= "btn btn-sm btn-success upvote" title="Approved by {{ business.votes }} pe{{ business.votes|pluralize:"rson,ople" }}">{{ business.votes }} Upvote </button>
+        			{% endif %}
+      				</form>
+	    		</div>
 	    		<div class="col-md-12">
 	    			<h1>{{ business }}</h1>
 	    		</div>
