@@ -32,3 +32,6 @@
 		    Sorry, no business listings under <i>{% if category %}{{ category }}{% endif %}{% if county %}{{ county }}{% endif %}</i>.
 		{% endfor %}
 {% endblock %}
+{% block js %}
+<script src="{% static 'reviews/js/vendor/jquery.raty.js' %}"></script>
+{% endblock %}

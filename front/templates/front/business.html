@@ -4,6 +4,7 @@
 {% block head %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="{% static 'accounts/css/vendor/bootstrap-social.css' %}">
+<link rel="stylesheet" href="{% static 'reviews/css/vendor/jquery.raty.css' %}">
 {% endblock %}
 {% block title %}{{ business }}{% endblock %}
 {% block content %}
@@ -14,21 +15,22 @@
 	    	{% else %}
 	    	<img src="/static/front/img/placeholder-640x480.png" height="400" width="767" class="img-rounded" alt="Rounded Image">
 	    	{% endif %}
+	    	<div class="ratings"></div>
 	    	<div id="info-business" class="row">
 	    		<div class="col-md-12">
 	    			<h1>{{ business }}</h1>
 	    		</div>
-	    		<div class="col-md-6">
+	    		<div class="col-md-12">
 	    			<p>{{ business.description }}</p>
 	    		</div>
 	    		<div class="col-md-6">
-	    			<kbd><i class="fa fa-phone"></i> {{ business.phone_number }}</kbd>
+	    			<p><kbd><i class="fa fa-phone"></i> {{ business.phone_number }}</kbd></p>
 	    		</div>
 	    		<div class="col-md-6">
-	    			<kbd><i class="fa fa-envelope-o"></i> {{ business.email}}</kbd>
+	    			<p><kbd><i class="fa fa-envelope-o"></i> {{ business.email}}</kbd></p>
 	    		</div>
 	    		<div class="col-md-6">
-	    			<kbd><i class="fa fa-street-view"></i> {{ business.street_address}}</kbd>
+	    			<p><kbd><i class="fa fa-street-view"></i> {{ business.street_address}}</kbd></p>
 	    		</div>
 	  		</div>
 	  	</div>
@@ -56,4 +58,7 @@
 	{% render_comment_list for business %}
 	{{ comment.user.get_profile.firstname }}
 	</div>
+{% endblock %}
+{% block js %}
+<script src="{% static 'reviews/js/vendor/jquery.raty.js' %}"></script>
 {% endblock %}
