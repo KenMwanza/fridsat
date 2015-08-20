@@ -2,24 +2,23 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
+from django.conf import settings
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('django_comments', '0002_update_user_email_field_length'),
+        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
+        ('front', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='CommentWithTitle',
+            name='Vote',
             fields=[
-                ('comment_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='django_comments.Comment')),
-                ('title', models.CharField(max_length=300)),
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('business', models.ForeignKey(to='front.Business')),
+                ('voter', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
-            options={
-                'abstract': False,
-            },
-            bases=('django_comments.comment',),
         ),
     ]

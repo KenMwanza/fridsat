@@ -50,6 +50,7 @@ def add_business(request):
         if form.is_valid():
             business = form.save(commit=False)
             cd = form.cleaned_data
+            business.user = request.user
             business.name = cd['name']
             business.category = cd['category']
             business.county = cd['county']

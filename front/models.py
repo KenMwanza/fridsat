@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models import Count
+from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 
 class BusinessVoteCountManager(models.Manager):
@@ -9,6 +10,7 @@ self).get_queryset().annotate(
         votes=Count('vote')).order_by('-rank_score', '-votes')
 
 class Business(models.Model):
+    user = models.ForeignKey(User)
     name = models.CharField(max_length=200)
     category = models.CharField(max_length=50, blank=False, null=False)
     county = models.CharField(max_length=20)
@@ -19,6 +21,7 @@ class Business(models.Model):
     image = models.ImageField(upload_to='documents/%Y/%m/%d',  blank=True, null=True)
     slug = models.SlugField(max_length=1000, blank=True, null=True)
     pub_date = models.DateTimeField(auto_now_add=True)
+    rank_score = models.FloatField(default=0.0)
 
     with_votes = BusinessVoteCountManager()
     objects = models.Manager() #default manager
