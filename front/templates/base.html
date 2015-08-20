@@ -22,9 +22,9 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+      {% block navbar %}
       <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
               <span class="sr-only">Toggle navigation</span>
@@ -34,7 +34,6 @@
             </button>
             <a class="navbar-brand" href="{% url 'front:index' %}"><img src="{% static 'front/img/bizbay.png' %}" height="30"/></a>
           </div>
-          <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <a href="{% url 'front:add_business' %}">
@@ -49,7 +48,7 @@
               <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search for business, county, products, etc">
                 <span class="input-group-btn">
-                  <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button>
+                  <button type="submit" class="btn btn-info"><i class="glyphicon glyphicon-search"></i></button>
                 </span>
               </div>
             </form>
@@ -65,22 +64,23 @@
                 </ul>
               </li>
             {% endif %}
-              {% if user.is_authenticated %}
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.get_full_name }} <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="{% url 'django.contrib.auth.views.logout' %}?next=/">Sign out</a></li>
-                </ul>
-              </li>
-              {% else %}
-              <li>
-                <button id="signup" data-target="#modal-signup" data-toggle="modal" class="btn btn-success navbar-btn btn-sm">Sign up</button>
-              </li>
-              {% endif %}
+            {% if user.is_authenticated %}
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.get_full_name }} <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="{% url 'django.contrib.auth.views.logout' %}?next=/">Sign out</a></li>
+              </ul>
+            </li>
+            {% else %}
+            <li>
+              <button id="signup" data-target="#modal-signup" data-toggle="modal" class="btn btn-success navbar-btn btn-sm">Sign up</button>
+            </li>
+            {% endif %}
             </ul>
-          </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
+          </div>
+        </div>
       </nav>
+      {% endblock %}
 
       <div class="container">
       {% if user.has_usable_password == False %}
@@ -102,20 +102,20 @@
       <div id="footer">
         <div class="row">
           <div class="col-md-4">
-            <p><a href="">About Fridsat</a></p>
+            <p><a href="">About Bizbay</a></p>
             <p><a href="">Careers</a></p>
             <p><a href="">Press</a></p>
             <p><a href="">Claim Your Business</a></p>
           </div>
           <div class="col-md-4">
-            <p><a href="">About Fridsat</a></p>
-            <p><a href="">Claim Your Business</a></p>
+            <p><a href="">FAQs</a></p>
+            <p><a href="">Terms of Service</a></p>
             <p><a href="">Blog</a></p>
           </div>
           <div class="col-md-4">
-            <p><a href="">About Fridsat</a></p>
-            <p><a href="">Claim Your Business</a></p>
-            <p><a href="">Advertise on Frifsat</a></p>
+            <p><a href="">Privacy Policy</a></p>
+            <p><a href="">Content Guidelines</a></p>
+            <p><a href="">Business Support</a></p>
           </div>
         </div>
       </div>

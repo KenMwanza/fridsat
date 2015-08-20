@@ -1,17 +1,44 @@
 {% extends 'base.html' %}
+
 {% load staticfiles %}
+
+{% load comments %}
+
 {% block title %}
 	{% if category %}{{ category }}{% endif %}
 	{% if county %}{{county}}{% endif %}
 {% endblock %}
+
 {% block head %}
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="{% static 'accounts/css/vendor/bootstrap-social.css' %}">
 {% endblock %}
+
 {% block content %}
 		{% for business in businesses %}
+			{% get_comment_count for business as comment_count %}
 			<div class="panel panel-default info-panel">
-			  <div class="panel-body">
+			    <div class="panel-body">			    	
+				    <div class="row info-top pull-right">
+				    	<div class="col-sm-3">
+				    	</div>
+				    	<div class="col-sm-3">
+				    	</div>
+				    	<div class="col-sm-3">
+				    		<a class="btn-info btn-xs">
+				    			<span class="badge">
+				    				{{ business.vote_set.count }} vote{{ business.vote_set.count|pluralize:"s" }}
+				    			</span>
+				    		</a>
+				    	</div>
+				    	<div class="col-sm-3">
+				    		<a class="btn-warning btn-xs">
+				    			<span class="badge">
+				    				{{ comment_count }} review{{ comment_count|pluralize:"s" }}
+				    			</span>
+				    		</a>
+				    	</div>
+				    </div>
 			  	<div class="row">
 			  		<div class="col-md-2">
 			  			{% if business.image %}

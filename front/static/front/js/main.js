@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    $('.ratings').raty();
   	$('select').chosen();
 	$('input.number').keyup(function(event) {
 

@@ -50,13 +50,14 @@
 	    			<p><kbd><i class="fa fa-envelope-o"></i> {{ business.email}}</kbd></p>
 	    		</div>
 	    		<div class="col-md-6">
-	    			<p><kbd><i class="fa fa-street-view"></i> {{ business.street_address}}</kbd></p>
+	    			<p><kbd><i class="glyphicon glyphicon-map-marker"></i> {{ business.street_address}}</kbd></p>
 	    		</div>
 	  		</div>
 	  	</div>
 	</div>
  	<div id="comment">
- 		<h4 class="lead">Your review</h4>
+ 		{% get_comment_count for business as comment_count %}
+ 		<h4 class="lead">Your review ({{ comment_count }})</h4>
  		<div id="response-comment"></div>
 		{% if user.is_authenticated %}
 		    {% get_comment_form for business as form %}
