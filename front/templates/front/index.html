@@ -60,7 +60,7 @@
             	<div class="input-group">
 	                <input type="text" class="form-control" placeholder="Search for business, county, products, etc">
 	                <span class="input-group-btn">
-	                    <button type="submit" class="btn btn-info"><i class="glyphicon glyphicon-search"></i></button>
+	                    <button type="submit" class="btn btn-info"><i class="fa fa-search"></i></button>
 	                </span>
                 </div>
         	</form>
@@ -75,7 +75,7 @@
           		{% for category in categories %}
              		<div class="col-md-3">
           				<a href="{{ category.get_absolute_url }}" title="{{ category }}"><i class="{{ category.icon }} fa-4x"></i></a>
-          				<b><p>{{ category }}</p></b>
+          				<p>{{ category }}</p>
           			</div>
           		{% endfor %}
           		</div>
