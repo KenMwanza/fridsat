@@ -33,6 +33,10 @@ $(document).ready(function() {
     });
 });
 
+document.getElementById("id_image").onchange = function () {
+    document.getElementById("uploadFile").value = this.value;
+};
+
 function bindPostCommentHandler() {
     $('#form-comment input.submit-preview').remove();
     $('#form-comment').submit(function() {

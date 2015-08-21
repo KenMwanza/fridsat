@@ -60,7 +60,9 @@
           </div>
           <div class="col-md-12">
             <div class="form-group {% if form.image.errors %} alert alert-danger {% endif %}">
+              <input id="uploadFile" placeholder="Choose File" disabled="disabled" />
               <div class="image-upload btn btn-default">
+                <span>Upload</span>
                {{ form.image }} 
               </div>
             </div>

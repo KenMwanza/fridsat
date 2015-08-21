@@ -20,11 +20,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = ')l!s=672)fx%@i+n72!d11wqkk)9f7z&r9we88div@5vy3i!lz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.bizbay.co.ke']
 
 LOGIN_REDIRECT_URL = '/home'
 
@@ -139,6 +139,10 @@ STATIC_URL = '/static/'
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_ROOT = '/opt/fridsat/media/'
+
+STATIC_ROOT = '/opt/fridsat/media/static/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.

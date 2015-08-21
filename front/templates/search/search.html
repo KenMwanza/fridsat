@@ -2,7 +2,7 @@
 
 {% load staticfiles %}
 
-{% block title %}Search Results{% endblock %}
+{% block title %}Search Results {% endblock %}
 
 {% block content %}
 <img id="jumbo" src="{% static 'front/img/favicono.png' %}" class="img-responsive" width="200" height="200">
@@ -21,7 +21,7 @@
                     {% endif %}
                     <a href="{{ result.object.get_absolute_url }}">{{ result.object.name|linebreaksbr }}</a>
                 </dt>
-                <dd>{{ result.object.description }}</dd>
+                <dd>{{ result.object.description|truncatechars:250 }}</dd>
                 <dd>Published by {{ result.object.user }}</dd>
                 <dd><small>{{ result.object.pub_date }}</small></dd>
             </dl>
