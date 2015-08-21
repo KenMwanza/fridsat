@@ -27,7 +27,7 @@
 				    	<div class="col-sm-3">
 				    		<a class="btn-info btn-xs">
 				    			<span class="badge">
-				    				{{ business.vote_set.count }} vote{{ business.vote_set.count|pluralize:"s" }}
+				    				{{ business.vote_set.count }} upvote{{ business.vote_set.count|pluralize:"s" }}
 				    			</span>
 				    		</a>
 				    	</div>
@@ -44,7 +44,7 @@
 			  			{% if business.image %}
 			  			<img src="{{ business.image.url }}" alt="..." width="100" height="105" class="img-circle">
 			  			{% else %}
-			  			<img src="http://images.prd.mris.com/image/V2/1/Yu59d899Ocpyr_RnF0-8qNJX1oYibjwp9TiLy-bZvU9vRJ2iC1zSQgFwW-fTCs6tVkKrj99s7FFm5Ygwl88xIA.jpg" alt="..." width="100" height="105" class="img-circle">
+			  			<img src="/static/front/img/placeholder-640x480.png" height="100" width="105" class="img-rounded" alt="Rounded Image">
 			  			{% endif %}
 			  		</div>
 			  		<div class="col-md-10">

@@ -8,7 +8,7 @@
 {% endblock %}
 {% block title %}{{ business }}{% endblock %}
 {% block content %}
-	<div class="panel panel-default info-panel">
+	<div id="business" class="panel panel-default info-panel">
 	  	<div class="panel-body">
 	  		{% if business.image %}
 	    	<img src="{{ business.image.url }}" height="400" width="767" class="img-rounded img-responsive" alt="Rounded Image">
@@ -30,9 +30,9 @@
         				{% elif business.pk not in voted %}
           				<button class="btn btn-sm btn-success upvote"><i class="fa fa-thumbs-up"></i></button>
         			{% else %}
-            			<button class="btn btn-block btn-social btn-facebook upvote" title="Approved by {{ business.votes }} pe{{ business.votes|pluralize:"rson,ople" }}">
+            			<button class="btn btn-block btn-social btn-twitter upvote" title="Approved by {{ business.votes }} pe{{ business.votes|pluralize:"rson,ople" }}">
               				<i class="fa">{{ business.votes }}</i>
-            				<span>Downvote</span>
+            				<span>Upvote</span>
           				</button>
         			{% endif %}
       				</form>

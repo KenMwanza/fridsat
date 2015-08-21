@@ -56,17 +56,17 @@
         </div>
       </nav>
 		<div id="search">
-        	<form id="index-search">
+        	<form id="index-search" action="/business/search?=" method="get">
             	<div class="input-group">
-	                <input type="text" class="form-control" placeholder="Search for business, county, products, etc">
+	                <input type="text" name="q" class="form-control" placeholder="Search for business, county, products, etc">
 	                <span class="input-group-btn">
 	                    <button type="submit" class="btn btn-info"><i class="fa fa-search"></i></button>
 	                </span>
                 </div>
         	</form>
     	</div>
-    	<p id="tagline">
-    		<img src="{% static 'front/img/bizbay.png' %}" height="20"> - Kenya's most popular business directory for reviews.
+    	<p id="tagline" class="lead">
+    		<img src="{% static 'front/img/bizbay.png' %}" height="25"> - Kenya's most comprehensive business directory.
     	</p>
         <img id="jumbo" src="{% static 'front/img/favicono.png' %}" class="img-responsive" width="200" height="200"> 
     	<div id="links-panel" class="panel panel-default">

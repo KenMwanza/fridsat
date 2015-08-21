@@ -132,6 +132,10 @@ body {
     margin-top: 10px;
 }
 
+#business .panel-body {
+    padding-top: 15px;
+}
+
 .info-panel {
     margin: 10px auto;
     width: 70%;
@@ -250,6 +254,12 @@ body {
     margin-bottom: 30px;
     width: 70%;
     border-radius: 0;
+}
+
+#search {
+    width: 70%;
+    margin: 0 auto;
+    padding: 5px;
 }
 
 #panel-accounts {
