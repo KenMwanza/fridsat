@@ -136,6 +136,15 @@ body {
     padding-top: 15px;
 }
 
+#business .panel-body #info-business .col-md-12 h1 {
+    font-weight: bolder;
+    margin: 0 0 8px 0;
+}
+
+#business .panel-body #info-business .col-md-8 {
+    padding-right: 0;
+}
+
 .info-panel {
     margin: 10px auto;
     width: 70%;
@@ -171,18 +180,14 @@ body {
 
 #comments dd p {
   position:relative;
+  color: #FFF;
+  background-color: #5BC0DE;
   padding:15px;
   margin:1em 0 3em;
-  color:#fff;
-  background:#075698; /* default background for browsers without gradient support */
-  /* css3 */
-  background:-webkit-gradient(linear, 0 0, 0 100%, from(#2e88c4), to(#075698));
-  background:-moz-linear-gradient(#2e88c4, #075698);
-  background:-o-linear-gradient(#2e88c4, #075698);
-  background:linear-gradient(#2e88c4, #075698);
-  -webkit-border-radius:10px;
-  -moz-border-radius:10px;
-  border-radius:10px;
+}
+
+#comments dd {
+    margin: 0 0 0 10px;
 }
 
 #id_comment {

@@ -10,13 +10,29 @@
 {% block content %}
 	<div id="business" class="panel panel-default info-panel">
 	  	<div class="panel-body">
-	  		{% if business.image %}
-	    	<img src="{{ business.image.url }}" height="400" width="767" class="img-rounded img-responsive" alt="Rounded Image">
-	    	{% else %}
-	    	<img src="/static/front/img/placeholder-640x480.png" height="400" width="767" class="img-rounded" alt="Rounded Image">
-	    	{% endif %}
-
 	    	<div id="info-business" class="row">
+	    		<div class="col-md-12">
+	    			<h1>{{ business }}</h1>
+	    		</div>
+	    		<div class="col-md-8">
+			  		{% if business.image %}
+			    	<img src="{{ business.image.url }}" height="400" width="767" class="img-rounded img-responsive" alt="Rounded Image">
+			    	{% else %}
+			    	<img src="/static/front/img/placeholder-640x480.png" height="400" width="767" class="img-rounded" alt="Rounded Image">
+			    	{% endif %}
+			    </div>
+	    		<div class="col-md-4">
+	    			<p><kbd><i class="fa fa-phone"></i></kbd> {{ business.phone_number }}</p>
+	    		</div>
+	    		<div class="col-md-4">
+	    			<p><kbd><i class="fa fa-envelope-o"></i></kbd> {{ business.email}}</p>
+	    		</div>
+	    		<div class="col-md-4">
+	    			<p><kbd><i class="glyphicon glyphicon-map-marker"></i></kbd> {{ business.street_address}}</p>
+	    		</div>
+	    		<div class="col-md-4">
+	    			<p><kbd><i class="fa fa-tag"></i></kbd> <a href="{{ category.get_absolute_url }}">{{ business.category }}</a></p>
+	    		</div>
 	    		<div class="col-md-3">
 	    			<form method="post" action="{% url 'reviews:vote' %}" class="vote_form" role="form">
       				{% csrf_token %}
@@ -38,29 +54,14 @@
       				</form>
 	    		</div>
 	    		<div class="col-md-12">
-	    			<h1>{{ business }}</h1>
-	    		</div>
-	    		<div class="col-md-12">
 	    			<p>{{ business.description }}</p>
-	    		</div>
-	    		<div class="col-md-6">
-	    			<p><kbd><i class="fa fa-phone"></i></kbd> {{ business.phone_number }}</p>
-	    		</div>
-	    		<div class="col-md-6">
-	    			<p><kbd><i class="fa fa-envelope-o"></i></kbd> {{ business.email}}</p>
-	    		</div>
-	    		<div class="col-md-6">
-	    			<p><kbd><i class="glyphicon glyphicon-map-marker"></i></kbd> {{ business.street_address}}</p>
-	    		</div>
-	    		<div class="col-md-6">
-	    			<p><kbd>{{ business.category}}</kbd></p>
 	    		</div>
 	  		</div>
 	  	</div>
 	</div>
  	<div id="comment">
  		{% get_comment_count for business as comment_count %}
- 		<h4 class="lead">Your review ({{ comment_count }})</h4>
+ 		<h4 class="lead">Write a Review</h4>
  		<div id="response-comment"></div>
 		{% if user.is_authenticated %}
 		    {% get_comment_form for business as form %}
@@ -74,6 +75,7 @@
 		    {{ form.security_hash }}
 		    <button type="submit" class="btn btn-info btn-sm">Add review</button>
 		    </form>
+ 		<p class="lead"><small>{{ comment_count }} review{{ comment_count|pluralize:"s" }}</small></p>
 		{% else %}
 		    <p>Please <a href="{% url 'registration:login' %}">log in</a> to leave a review.</p>
 		{% endif %}
