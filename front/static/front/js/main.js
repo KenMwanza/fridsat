@@ -14,6 +14,8 @@ $(document).ready(function() {
 	});
 	bindPostCommentHandler();
 
+    $('#response-comment').raty({ path: '/static/reviews/img/vendor/' });
+
     $(".vote_form").submit(function(e) 
     {
         e.preventDefault(); 
