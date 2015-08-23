@@ -63,8 +63,8 @@
 	  	<div class="panel-body">
 	 		{% get_comment_count for business as comment_count %}
 	 		<h4 class="lead">Write a Review</h4>
-	 		<div id="response-comment"></div>
 			{% if user.is_authenticated %}
+	 			<div id="response-comment"></div>
 			    {% get_comment_form for business as form %}
 			    <form id="form-comment" action="{% comment_form_target %}" method="POST">
 			    {% csrf_token %}
