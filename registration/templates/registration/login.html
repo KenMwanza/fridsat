@@ -12,6 +12,7 @@
 {% block content %}
 		<div id="panel-accounts" class="panel panel-default">
 			<div class="panel-body">
+				<h1>Log in to Bizbay</h1>
 				<div class="row">
 					<form action="{% url 'django.contrib.auth.views.login' %}?next={{next}}" method="post" role="form">
 					{% csrf_token %}

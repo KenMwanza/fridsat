@@ -300,8 +300,105 @@ body {
 }
 
 #panel-accounts {
-    width: 800px;
+    width: 50%;
     margin: 100px auto;
+}
+
+#landing .col-md-3 .panel-body p {
+    text-align: center; 
+    border-bottom: 1px solid #000; 
+    line-height: 0.1em;
+    margin: 20px 0 20px;     
+}
+
+#landing .col-md-3 .panel-body p span {
+    background: #fff; 
+    padding:0 10px;     
+}
+
+#landing .col-md-3 .panel-heading {
+    background-image: none;
+    background-color: #FFB000;
+    font-weight: bolder;
+    color: white;    
+}
+
+#landing .col-md-9 .panel-heading {
+    background-image: none;
+    background-color: #21E4FF;
+    font-weight: bolder;
+    color: white;
+}
+
+#landing .col-md-9 .panel-body {
+    background-image: url('/static/accounts/img/restaurant.jpg');
+}
+
+#landing .col-md-9 ul li {
+    margin-bottom: 10px;
+}
+
+#landing .col-md-9 ul li i {
+    color: #FF4343;
+}
+
+#landing .col-md-12 h1 {
+     font-size: 16px !important;
+     /* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
+
+     width: 50%;
+        
+     position: relative;
+     background: #ba89b6;
+     color: #fff;
+     text-align: center;
+     padding: 1em 2em; /* Adjust to suit */
+     margin: 2em auto 3em;
+}
+
+#landing .col-md-12 h1:before, #landing .col-md-12 h1:after {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: -1em;
+    border: 1.5em solid #986794;
+    z-index: -1;
+}
+
+#landing .col-md-12 h1:before {
+     left: -2em;
+     border-right-width: 1.5em;
+     border-left-color: transparent; 
+}
+
+#landing .col-md-12 h1:after {
+    right: -2em;
+    border-left-width: 1.5em;
+    border-right-color: transparent;    
+}
+
+#landing .col-md-12 h1 .ribbon-content:before, #landing .col-md-12 h1 .ribbon-content:after {
+     content: "";
+     position: absolute;
+     display: block;
+     border-style: solid;
+     border-color: #804f7c transparent transparent transparent;
+     bottom: -1em;
+}
+
+#landing .col-md-12 h1 .ribbon-content:before {
+    left: 0;
+    border-width: 1em 0 0 1em;
+}
+
+#landing .col-md-12 h1 .ribbon-content:after {
+    right: 0;
+    border-width: 1em 1em 0 0;
+}
+
+#logo-landing {
+    margin: 5px auto;
+    display: block;
 }
 
 #col-email-login {

@@ -74,8 +74,7 @@
           		<div class="row">
           		{% for category in categories %}
              		<div class="col-md-3">
-          				<a href="{{ category.get_absolute_url }}" title="{{ category }}"><i class="{{ category.icon }} fa-4x"></i></a>
-          				<p>{{ category }}</p>
+          				<a href="{{ category.get_absolute_url }}" title="{{ category }}"><i class="{{ category.icon }} fa-3x"></i><p>{{ category }}</p></a>
           			</div>
           		{% endfor %}
           		</div>
