@@ -330,10 +330,6 @@ body {
     color: white;
 }
 
-#landing .col-md-9 .panel-body {
-    background-image: url('/static/accounts/img/restaurant.jpg');
-}
-
 #landing .col-md-9 ul li {
     margin-bottom: 10px;
 }
