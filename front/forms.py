@@ -17,7 +17,7 @@ class BusinessForm(BaseModelForm):
 	category = forms.ModelChoiceField(queryset=Category.objects.all(), empty_label="Category")
 	county = forms.ModelChoiceField(queryset=County.objects.all(), empty_label="County")
 	street_address = forms.CharField(widget=forms.TextInput(attrs={'class' : 'form-control', 'type':'text', 'placeholder':'Street address (e.g. Moi Avenue, Nairobi)'}))
-	website = forms.CharField(widget=forms.TextInput(attrs={'class' : 'form-control', 'type':'text', 'placeholder':'Web URL (Optional)'}))
+	website = forms.URLField(widget=forms.TextInput(attrs={'class' : 'form-control', 'type':'text', 'placeholder':'Web URL (Optional)'}))
 	email = forms.EmailField(widget=forms.TextInput(attrs={'class' : 'form-control', 'type':'text', 'placeholder':'Business email'}))
 	phone_number = forms.CharField(widget=forms.TextInput(attrs={'class' : 'form-control', 'type':'text', 'placeholder':'Phone number'}))
 	description = forms.CharField(widget=forms.Textarea(attrs={'class':'form-control','rows':2, 'cols': 15, 'placeholder':'Brief description'}))
