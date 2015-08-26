@@ -35,7 +35,7 @@ $(document).ready(function() {
     });
 });
 
-document.getElementById("#id_image").onchange = function () {
+document.getElementById("id_image").onchange = function () {
     document.getElementById("uploadFile").value = this.value;
 };
 

@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="{% static 'front/css/vendor/dropzone.css' %}">
 {% endblock %}
 {% block content %}
-    <div id="business-post" class="row panel panel-default post">
+    <div class="row panel panel-default post">
       <div class="panel-body">
       {% if form.errors %}
           {% for field in form %}
@@ -24,52 +24,63 @@
         <form action="" enctype='multipart/form-data' method="post">
         {% csrf_token %}
           <div class="col-md-12">
-            <div class="form-group {% if form.name.errors %} alert alert-danger {% endif %}">
+            <div class="form-group has-feedback {% if form.name.errors %} alert alert-danger {% endif %}">
               {{ form.name }}
+              <i class="glyphicon glyphicon-leaf form-control-feedback"></i>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-12">
             <div class="form-group {% if form.category.errors %} alert alert-danger {% endif %}">
               {{ form.category }}
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-12">
             <div class="form-group {% if form.county.errors %} alert alert-danger {% endif %}">
               {{ form.county }}
             </div>
           </div>
           <div class="col-md-12">
-            <div class="form-group {% if form.street_address.errors %} alert alert-danger {% endif %}">
+            <div class="form-group has-feedback {% if form.street_address.errors %} alert alert-danger {% endif %}">
                {{ form.street_address }}
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group {% if form.email.errors %} alert alert-danger {% endif %}">
-               {{ form.email }} 
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group {% if form.phone_number.errors %} alert alert-danger {% endif %}">
-               {{ form.phone_number }} 
+               <i class="glyphicon glyphicon-map-marker form-control-feedback"></i>
             </div>
           </div>
           <div class="col-md-12">
-            <div class="form-group {% if form.description.errors %} alert alert-danger {% endif %}">
+            <div class="form-group has-feedback {% if form.email.errors %} alert alert-danger {% endif %}">
+               {{ form.email }}
+              <i class="glyphicon glyphicon-envelope form-control-feedback"></i>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group has-feedback {% if form.phone_number.errors %} alert alert-danger {% endif %}">
+               {{ form.phone_number }}
+               <i class="glyphicon glyphicon-phone form-control-feedback"></i> 
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group has-feedback {% if form.website.errors %} alert alert-danger {% endif %}">
+               {{ form.website }}
+               <i class="glyphicon glyphicon-globe form-control-feedback"></i>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group has-feedback {% if form.description.errors %} alert alert-danger {% endif %}">
                {{ form.description }} 
             </div>
           </div>
           <div class="col-md-12">
             <div class="form-group {% if form.image.errors %} alert alert-danger {% endif %}">
-              <input id="uploadFile" placeholder="Choose File" disabled="disabled" />
-              <div class="image-upload btn btn-default">
-                <span>Upload</span>
-               {{ form.image }} 
+              <div class="input-group">
+                <input id="uploadFile" type="text" class="form-control" placeholder="Choose File" disabled="disabled" />
+                <span class="image-upload input-group-addon">
+                 Select image {{ form.image }}
+                 </span>
               </div>
             </div>
           </div>
           <div class="col-md-12">
             <div class="form-group">
-              <button type="submit" class="btn btn-success">Submit</button>
+              <button type="submit" class="form-control btn btn-success">Submit</button>
             </div>
           </div>
         </form>

@@ -30,6 +30,11 @@
 	    		<div class="col-md-4">
 	    			<p><kbd><i class="glyphicon glyphicon-map-marker"></i></kbd> {{ business.street_address}}</p>
 	    		</div>
+	    		{% if business.website %}
+	    		<div class="col-md-4">
+	    			<p><kbd><i class="fa fa-globe"></i></kbd> <a href="http://{{ business.website }}">{{ business.website }}</a></p>
+	    		</div>
+	    		{% endif %}
 	    		<div class="col-md-4">
 	    			<p><kbd><i class="fa fa-tag"></i></kbd> <a href="{{ category.get_absolute_url }}">{{ business.category }}</a></p>
 	    		</div>

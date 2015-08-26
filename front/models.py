@@ -11,13 +11,14 @@ self).get_queryset().annotate(
 
 class Business(models.Model):
     user = models.ForeignKey(User)
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, unique=True)
     category = models.CharField(max_length=50, blank=False, null=False)
     county = models.CharField(max_length=20)
     street_address = models.CharField(max_length=100)
     email = models.EmailField(max_length=70,blank=True)
     phone_number = models.CharField(max_length=25, blank=True)
     description = models.TextField(blank=True, null=True)
+    website = models.URLField(blank=True, null=True)
     image = models.ImageField(upload_to='documents/%Y/%m/%d',  blank=True, null=True)
     slug = models.SlugField(max_length=1000, blank=True, null=True)
     pub_date = models.DateTimeField(auto_now_add=True)

@@ -57,6 +57,7 @@ def add_business(request):
             business.category = cd['category']
             business.county = cd['county']
             business.street_address = cd['street_address']
+            business.website = cd['website']
             business.email = cd['email']
             business.image = cd['image']
             business.phone_number = cd['phone_number']
