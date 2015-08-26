@@ -304,6 +304,10 @@ body {
     margin: 100px auto;
 }
 
+#landing .col-md-3 .panel-body a {
+    margin-bottom: 30px;
+}
+
 #landing .col-md-3 .panel-body p {
     text-align: center; 
     border-bottom: 1px solid #000; 

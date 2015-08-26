@@ -12,69 +12,76 @@
 {% block navbar %}{% endblock %}
 
 {% block content %}
-		<div id="landing" class="row">
-			<div class="col-md-12">
-				<a href="{% url 'front:index' %}"><img src="{% static 'front/img/bizbay.png' %}" id="logo-landing" height="100"></a>
-				<h1>
-					<strong class="ribbon-content">Increase Your Customer Base For FREE!</strong>
-				</h1>
-			</div>
-			<div class="col-md-9">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<div class="panel-title">
-							Welcome to Bizbay
+			<div id="landing" class="row">
+				<div class="col-md-12">
+					<a href="{% url 'front:index' %}"><img src="{% static 'front/img/bizbay.png' %}" class="img-responsive" id="logo-landing" height="100"></a>
+					<h1>
+						<strong class="ribbon-content">Increase Your Customer Base For FREE!</strong>
+					</h1>
+				</div>
+				<div class="col-md-9">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<div class="panel-title">
+								Welcome to Bizbay
+							</div>
 						</div>
-					</div>
-					<div class="panel-body">
-						<p>
-							At Bizbay, we expose you to thousands of potential customers in Nairobi. Share information about your business with the community and see your customer base increase tremendously.
-							<ul class="list-unstyled">
-								You will be able to add the following information about your business:-
-								<li><i class="glyphicon glyphicon-ok"></i> Your business name</li>
-								<li><i class="glyphicon glyphicon-ok"></i> An image about your business</li>
-								<li><i class="glyphicon glyphicon-ok"></i> Your business contact email</li>
-								<li><i class="glyphicon glyphicon-ok"></i> Your business phone number</li>
-								<li><i class="glyphicon glyphicon-ok"></i> Your business location</li>
-								<li><i class="glyphicon glyphicon-ok"></i> A URL to your business website (optional)</li>
-							</ul>
-						</p>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-12">
+									At Bizbay, we expose you to thousands of potential customers in Nairobi. Share information about your business with the community and see your customer base increase tremendously.
+								</div>
+								<div class="col-md-6">
+									<ul class="list-unstyled">
+										You will be able to add the following information about your business:-
+										<li><i class="glyphicon glyphicon-ok"></i> Your business name</li>
+										<li><i class="glyphicon glyphicon-ok"></i> An image about your business</li>
+										<li><i class="glyphicon glyphicon-ok"></i> Your business contact email</li>
+										<li><i class="glyphicon glyphicon-ok"></i> Your business phone number</li>
+										<li><i class="glyphicon glyphicon-ok"></i> Your business location</li>
+										<li><i class="glyphicon glyphicon-ok"></i> A URL to your business website (optional)</li>
+									</ul>
+								</div>
+								<div class="col-md-6">
+									<img src="{% static 'accounts/img/restaurant.jpg' %}" class="img-responsive" width="370">
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<div class="panel-title">
-							Join Us
+				<div class="col-md-3">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<div class="panel-title">
+								Join Us
+							</div>
 						</div>
-					</div>
-					<div class="panel-body">
-					    <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}" class="btn btn-block btn-social btn-facebook">
-					        <i class="fa fa-facebook-official"></i>
-							Sign up with Facebook
-					    </a>
-					    <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}" class="btn btn-block btn-social btn-google">
-					        <i class="fa fa-google"></i>
-							Sign up with Google
-					    </a>
-					    <p><span>Log In</span></p>
-						<form action="{% url 'django.contrib.auth.views.login' %}?next={{next}}" method="post" role="form">
-						{% csrf_token %}
-								<div class="form-group">
-									<input type="text" class="form-control" name="username" placeholder="Username">
-								</div>
-								<div class="form-group">
-									<input type="password" class="form-control" name="password" placeholder="Password">
-								</div>
-								<div class="form-group">
-									<button class="btn btn-primary" type="submit" class="form-control">Log in</button>
-								</div>
-						</form>
+						<div class="panel-body">
+						    <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}" class="btn btn-block btn-social btn-facebook">
+						        <i class="fa fa-facebook-official"></i>
+								Sign up with Facebook
+						    </a>
+						    <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}" class="btn btn-block btn-social btn-google">
+						        <i class="fa fa-google"></i>
+								Sign up with Google
+						    </a>
+						    <p><span>Log In</span></p>
+							<form action="{% url 'django.contrib.auth.views.login' %}?next={{next}}" method="post" role="form">
+							{% csrf_token %}
+									<div class="form-group">
+										<input type="text" class="form-control" name="username" placeholder="Username">
+									</div>
+									<div class="form-group">
+										<input type="password" class="form-control" name="password" placeholder="Password">
+									</div>
+									<div class="form-group">
+										<button class="btn btn-primary form-control" type="submit">Log in</button>
+									</div>
+							</form>
+					    </div>
 				    </div>
-			    </div>
+				</div>
 			</div>
-		</div>
 {% endblock %}
 
 {% block footer %}{% endblock %}
