@@ -78,6 +78,14 @@ body {
     background-color: #F7F7F7;
 }
 
+#index {
+    width: 100%;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    background-image: url('/static/front/img/nairobi.jpg');
+    background-repeat: no-repeat;
+}
+
 .container-fluid {
     background-color: #ffffff;
 }
@@ -89,6 +97,8 @@ body {
 
 #tagline {
     text-align: center;
+    color: white;
+    font-weight: bolder;
 }
 
 #container-fluid-index {
