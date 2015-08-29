@@ -7,6 +7,6 @@ urlpatterns = patterns('',
     url(r'^promo/landing/$', 'registration.views.landing', name='landing'),
     url(r'^accounts/password-change/$',
         'django.contrib.auth.views.password_change',
-        {'password_change_form': SetPasswordForm},
+        {'password_change_form': SetPasswordForm, 'post_change_redirect' : '/login/'},
         name="password_change"),
 )

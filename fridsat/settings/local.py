@@ -32,7 +32,6 @@ LOGIN_REDIRECT_URL = '/home'
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -43,6 +42,7 @@ INSTALLED_APPS = (
     'front',
     'registration',
     'reviews',
+    'django.contrib.admin',
     'social.apps.django_app.default',
     'django_comments',
 )
