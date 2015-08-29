@@ -24,7 +24,7 @@ DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['.bizbay.co.ke']
+ALLOWED_HOSTS = ['www.bizbay.co.ke']
 
 LOGIN_REDIRECT_URL = '/home'
 
