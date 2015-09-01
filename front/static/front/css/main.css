@@ -142,6 +142,52 @@ body {
     margin-top: 10px;
 }
 
+#businesses .panel-body ul {
+    list-style-type: none;
+    width: 100%;
+}
+
+#businesses .panel-body ul li h3 {
+    font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+    margin: 0;
+}
+
+#businesses .panel-body ul li img {
+    float: left;
+    margin: 0 15px 0 0;
+}
+
+#businesses .panel-body ul li p {
+    font: 200 12px/1.5 Georgia, Times New Roman, serif;
+}
+
+#businesses .panel-body ul li {
+    padding: 10px;
+    overflow: auto;
+}
+
+#businesses .panel-body ul li:hover {
+    background: #eee;
+    cursor: pointer;
+}
+
+#businesses {
+    margin: 10px auto;
+    width: 70%;
+    box-shadow:0 1px 2px #aaa;
+    background:white;
+    border-radius: none;
+}
+
+#businesses .panel-body {
+    padding-top: 0;
+}
+@media only screen and (min-width: 320px) and (max-width : 480px) {
+  #businesses {
+    width: 100%; 
+  } 
+}
+
 @media only screen and (min-width: 320px) and (max-width : 480px) {
   #business {
     width: 100%; 

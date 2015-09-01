@@ -12,52 +12,36 @@
 {% block head %}
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="{% static 'accounts/css/vendor/bootstrap-social.css' %}">
+<meta name="description" content="View emails, phone numbers, locations and other information about businesses under the {{ category }} category in Nairobi. Also view their user ratings and reviews.">
 {% endblock %}
 
 {% block content %}
-		{% for business in businesses %}
-			{% get_comment_count for business as comment_count %}
-			<div class="panel panel-default info-panel">
-			    <div class="panel-body">			    	
-				    <div class="row info-top pull-right">
-				    	<div class="col-sm-3">
-				    	</div>
-				    	<div class="col-sm-3">
-				    	</div>
-				    	<div class="col-sm-3">
-				    		<a class="btn-info btn-xs">
-				    			<span class="badge">
-				    				{{ business.vote_set.count }} upvote{{ business.vote_set.count|pluralize:"s" }}
-				    			</span>
-				    		</a>
-				    	</div>
-				    	<div class="col-sm-3">
-				    		<a class="btn-warning btn-xs">
-				    			<span class="badge">
-				    				{{ comment_count }} review{{ comment_count|pluralize:"s" }}
-				    			</span>
-				    		</a>
-				    	</div>
-				    </div>
-			  	<div class="row">
-			  		<div class="col-md-2">
-			  			{% if business.image %}
-			  			<img src="{{ business.image.url }}" alt="..." width="100" height="105" class="img-circle">
-			  			{% else %}
-			  			<img src="/static/front/img/placeholder-640x480.png" height="100" width="105" class="img-rounded" alt="Rounded Image">
-			  			{% endif %}
-			  		</div>
-			  		<div class="col-md-10">
-					    <h4><b><a href="{{ business.get_absolute_url }}">{{ business.name }}</a></b></h4>
-					    {{ business.county }} County | {{ business.street_address }} | {{ business.email }}
-					    <p class="hidden-xs">{{ business.description|truncatechars:100 }}</p>
-					</div>
-				</div>
+			<div id="businesses" class="panel panel-default">
+			    <div class="panel-body">
+			    	{% if businesses %}
+			    	<h2>You are viewing the {{ category }} category...</h2>
+			    	{% endif %}
+				{% for business in businesses %}
+					{% get_comment_count for business as comment_count %}
+					<ul class="list-unstyled">
+					    <li>
+						  	{% if business.image %}
+							<img src="{{ business.image.url }}" alt="{{ business.name }}" width="100" height="105" class="img-square">
+							{% else %}
+							<img src="/static/front/img/placeholder-640x480.png" height="100" width="105" class="img-rounded" alt="Rounded Image">
+							{% endif %}
+							<span><small class="text-primary">{{ business.vote_set.count }} recommendation{{ business.vote_set.count|pluralize:"s" }}</small></span>
+					      	<span><small class="text-success">{{ comment_count }} review{{ comment_count|pluralize:"s" }}</small></span>
+					      	<h3><b><a href="{{ business.get_absolute_url }}">{{ business.name }}</a></b></h3>
+					      	<p>{{ business.description|truncatechars:100 }}</p>
+					      	<p>{{ business.county }} County | {{ business.street_address }} | {{ business.email }} | {{ business.phone_number }}</p>
+					    </li>
+					</ul>
+				{% empty %}
+		    	Sorry, no business listings under <i>{% if category %}{{ category }}{% endif %}{% if county %}{{ county }}{% endif %}</i>.
+				{% endfor %}
 			  </div>
 			</div>
-		{% empty %}
-		    Sorry, no business listings under <i>{% if category %}{{ category }}{% endif %}{% if county %}{{ county }}{% endif %}</i>.
-		{% endfor %}
 {% endblock %}
 {% block js %}
 <script src="{% static 'reviews/js/vendor/jquery.raty.js' %}"></script>
