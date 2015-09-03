@@ -26,7 +26,7 @@
                             <span><small class="text-success">{{ comment_count }} review{{ comment_count|pluralize:"s" }}</small></span>
                             <h3><b><a href="{{ result.object.get_absolute_url }}">{{ result.object.name|linebreaksbr }}</a></b></h3>
                             <p>{{ result.object.description|truncatechars:100 }}</p>
-                            <p>{{ result.object.street_address }} | {{ result.object.email }} | {{ result.object.phone_number }} | <a href="{{ result.object.website }}">{{ result.object.website }}</a></p>
+                            <p>{{ result.object.street_address }} | {{ result.object.email }} | {{ result.object.phone_number }} {% if result.object.website %}| <a href="{{ result.object.website }}">{{ result.object.website }}</a>{% endif %}</p>
                         </li>
                     </ul>
                 {% empty %}
