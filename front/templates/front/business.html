@@ -17,9 +17,9 @@
 	    		</div>
 	    		<div class="col-md-8">
 			  		{% if business.image %}
-			    	<img src="{{ business.image.url }}" height="400" width="767" class="img-rounded img-responsive" alt="Rounded Image">
+			    	<img src="{{ business.image.url }}" height="400" width="767" class="img-rounded img-responsive" alt="{{ business }}">
 			    	{% else %}
-			    	<img src="/static/front/img/placeholder-640x480.png" height="400" width="767" class="img-rounded" alt="Rounded Image">
+			    	<img src="/static/front/img/placeholder-640x480.png" height="400" width="767" class="img-rounded" alt="{{ business }}">
 			    	{% endif %}
 			    </div>
 	    		<div class="col-md-4">

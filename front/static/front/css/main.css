@@ -95,28 +95,12 @@ body {
     overflow-x: auto;
 }
 
-#tagline {
-    text-align: center;
-    color: white;
-    font-weight: bolder;
-}
-
 #container-fluid-index {
     background-color: transparent;
 }
 
 .icon-bar-i {
     background-color: #FFB000;
-}
-
-#search {
-    width: 50%;
-    margin: 0 auto;
-}
-@media only screen and (min-width: 320px) and (max-width : 480px) {
-  #search {
-    width: 100%; 
-  } 
 }
 
 #jumbo {
@@ -349,7 +333,7 @@ body {
     filter: alpha(opacity=0);
 }
 
-#search {
+#search-box {
     width: 70%;
     margin: 0 auto;
     padding: 5px;
