@@ -9,6 +9,11 @@
 {% endblock %}
 {% block title %}{{ business }}{% endblock %}
 {% block content %}
+	<div class="breadcrumbs flat">
+		<a href="{% url 'front:index' %}" class="active">Home</a>
+		<a href="{{ category.get_absolute_url }}">{{ business.category|truncatechars:15 }}</a>
+		<a href="{{ business.get_absolute_url }}">{{ business.name|truncatechars:15 }}</a>
+	</div>
 	<div id="business" class="panel panel-default info-panel">
 	  	<div class="panel-body">
 	    	<div id="info-business" class="row">
@@ -36,9 +41,6 @@
 	    			<p><kbd><i class="fa fa-globe"></i></kbd> <a href="{{ business.website }}">{{ business.website }}</a></p>
 	    		</div>
 	    		{% endif %}
-	    		<div class="col-md-4">
-	    			<p><kbd><i class="fa fa-tag"></i></kbd> <a href="{{ category.get_absolute_url }}">{{ business.category }}</a></p>
-	    		</div>
 	    		<div class="col-md-3">
 	    			<form method="post" action="{% url 'reviews:vote' %}" class="vote_form" role="form">
       				{% csrf_token %}

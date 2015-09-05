@@ -18,8 +18,10 @@
 {% block content %}
 			<div id="businesses" class="panel panel-default">
 			    <div class="panel-body">
-			    	{% if businesses %}
+			    	{% if category %}
 			    	<h2>You are viewing the {{ category }} category...</h2>
+			    	{% else %}
+			    	<h2>You are viewing businesses in {{ county }} county...</h2>
 			    	{% endif %}
 				{% for business in businesses %}
 					{% get_comment_count for business as comment_count %}
