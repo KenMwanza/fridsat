@@ -5,7 +5,7 @@
 {% load comments %}
 
 {% block title %}
-	{% if category %}{{ category }}{% endif %}
+	{% if category %}{{ category }} Businesses in Nairobi{% endif %}
 	{% if county %}{{county}}{% endif %}
 {% endblock %}
 
@@ -19,7 +19,7 @@
 			<div id="businesses" class="panel panel-default">
 			    <div class="panel-body">
 			    	{% if category %}
-			    	<h2>You are viewing the {{ category }} category...</h2>
+			    	<h2>You are viewing the <b>{{ category }}</b> category...</h2>
 			    	{% else %}
 			    	<h2>You are viewing businesses in {{ county }} county...</h2>
 			    	{% endif %}

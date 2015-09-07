@@ -5,9 +5,9 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="{% static 'accounts/css/vendor/bootstrap-social.css' %}">
 <link rel="stylesheet" href="{% static 'reviews/css/vendor/jquery.raty.css' %}">
-<meta name="description" content="{{ business.description }}">
+<meta name="description" content="View {{ business }}'s phone number, email, web address, location and more in {{ county }} County on Bizbay">
 {% endblock %}
-{% block title %}{{ business }}{% endblock %}
+{% block title %}{{ business }}, {{ county }}{% endblock %}
 {% block content %}
 	<div class="breadcrumbs flat">
 		<a href="{% url 'front:index' %}" class="active">Home</a>
@@ -38,7 +38,7 @@
 	    		</div>
 	    		{% if business.website %}
 	    		<div class="col-md-4">
-	    			<p><kbd><i class="fa fa-globe"></i></kbd> <a href="{{ business.website }}">{{ business.website }}</a></p>
+	    			<p><kbd><i class="fa fa-globe"></i></kbd> <a href="{{ business.website }}">View Site</a></p>
 	    		</div>
 	    		{% endif %}
 	    		<div class="col-md-3">
@@ -54,9 +54,9 @@
         				{% elif business.pk not in voted %}
           				<button class="btn btn-sm btn-success upvote"><i class="fa fa-thumbs-up"></i></button>
         			{% else %}
-            			<button class="btn btn-block btn-social btn-twitter upvote" title="Approved by {{ business.votes }} pe{{ business.votes|pluralize:"rson,ople" }}">
+            			<button class="btn btn-block btn-social btn-twitter upvote" title="Recommended by {{ business.votes }} pe{{ business.votes|pluralize:"rson,ople" }}">
               				<i class="fa">{{ business.votes }}</i>
-            				<span>Upvote</span>
+            				<span>Recommend</span>
           				</button>
         			{% endif %}
       				</form>
