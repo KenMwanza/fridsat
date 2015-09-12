@@ -62,6 +62,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'social.apps.django_app.context_processors.login_redirect',
 )
 
+# Custom Context Processors
+TEMPLATE_CONTEXT_PROCESSORS += ("front.context_processors.categories_processor", )
+
 AUTHENTICATION_BACKENDS = (
     #'social.pipeline.social_auth.associate_by_email',
     'social.backends.facebook.FacebookOAuth2',

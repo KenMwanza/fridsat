@@ -5,12 +5,10 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
 def index(request):
-    categories = Category.objects.all()
     counties = County.objects.all()
     businesses = Business.objects.all()
     return render(request, 'front/index.html',
         {
-            'categories': categories,
             'counties': counties,
         }
     )
