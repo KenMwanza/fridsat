@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}{{ flatpage.title }}{% endblock %}
+
+{% block content %}
+	<div id="business" class="panel panel-default info-panel">
+	  	<div class="panel-body">
+			<h1 class="text-info">{{ flatpage.title }}</h1>
+			{{ flatpage.content|linebreaks }}
+	  	</div>
+	</div>
+{% endblock %}

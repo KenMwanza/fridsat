@@ -1,11 +1,13 @@
 from django.conf.urls import patterns, include, url
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
+from django.contrib.sitemaps import FlatPageSitemap
 from django.conf import settings
 from django.contrib import admin
 from front.sitemaps import BusinessSitemap, CountySitemap, CategorySitemap
 
 sitemaps = {
+    'flatpages': FlatPageSitemap,
     'business': BusinessSitemap,
     'county': CountySitemap,
     'category': CategorySitemap,

@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+# Additional location of templates folder 
+from os.path import join
+TEMPLATE_DIRS = (
+  join(BASE_DIR,  'templates'),
+)
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -39,6 +45,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'django.contrib.flatpages',
     'haystack',
     'front',
     'registration',
@@ -89,6 +96,9 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
+# Custom MIDDLEWARE_CLASSES
+MIDDLEWARE_CLASSES += ('django.contrib.flatpages.middleware.FlatpageFallbackMiddleware', )
 
 ROOT_URLCONF = 'fridsat.urls'
 
