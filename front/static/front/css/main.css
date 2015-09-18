@@ -186,7 +186,7 @@ body {
     padding-top: 15px;
 }
 
-#business .panel-body #info-business .col-md-12 h1 {
+#business .row .col-md-8 .panel .panel-body h1 {
     font-weight: bolder;
     margin: 0 0 8px 0;
 }
@@ -310,12 +310,6 @@ body {
 .info-panel {
     margin: 10px auto;
     width: 70%;
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    border-radius: 0px;
-    background: #FFF none repeat scroll 0% 0%;
-    border: 1px solid #DDD;
-    box-sizing: border-box;
 }
 
 .info-panel .panel-body {
@@ -397,10 +391,6 @@ body {
 
 #modal-dialog-signup {
     width: 300px;
-}
-
-.info-panel .panel-body .row .col-md-10 {
-    font-size: .9em;
 }
 
 .right.carousel-control, .left.carousel-control {

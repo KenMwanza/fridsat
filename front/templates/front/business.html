@@ -12,61 +12,62 @@
 	<div class="breadcrumbs flat">
 		<a href="{% url 'front:index' %}" class="active">Home</a>
 		<a href="{{ category.get_absolute_url }}">{{ business.category|truncatechars:15 }}</a>
-		<a href="{{ business.get_absolute_url }}">{{ business.name|truncatechars:15 }}</a>
+		<a href="{{ business.get_absolute_url }}">{{ business.name|truncatechars:35 }}</a>
 	</div>
-	<div id="business" class="panel panel-default info-panel">
-	  	<div class="panel-body">
-	    	<div id="info-business" class="row">
-	    		<div class="col-md-12">
-	    			<h1>{{ business }}</h1>
-	    		</div>
-	    		<div class="col-md-8">
-			  		{% if business.image %}
-			    	<img src="{{ business.image.url }}" height="400" width="767" class="img-rounded img-responsive" alt="{{ business }}">
-			    	{% else %}
-			    	<img src="/static/front/img/placeholder-640x480.png" height="400" width="767" class="img-rounded" alt="{{ business }}">
-			    	{% endif %}
-			    </div>
-	    		<div class="col-md-4">
-	    			<p><kbd><i class="fa fa-phone"></i></kbd> {{ business.phone_number }}</p>
-	    		</div>
-	    		<div class="col-md-4">
-	    			<p><kbd><i class="fa fa-envelope-o"></i></kbd> {{ business.email}}</p>
-	    		</div>
-	    		<div class="col-md-4">
-	    			<p><kbd><i class="glyphicon glyphicon-map-marker"></i></kbd> {{ business.street_address}}</p>
-	    		</div>
-	    		{% if business.website %}
-	    		<div class="col-md-4">
-	    			<p><kbd><i class="fa fa-globe"></i></kbd> <a href="{{ business.website }}">View Site</a></p>
-	    		</div>
-	    		{% endif %}
-	    		<div class="col-md-3">
-	    			<form method="post" action="{% url 'reviews:vote' %}" class="vote_form" role="form">
-      				{% csrf_token %}
-        				<input type="hidden" id="id_business" name="business" class="hidden_id" value="{{ business.pk }}" />
-        				<input type="hidden" id="id_voter" name="voter" class="hidden_id" value="{{ user.pk }}" />
-        			{% if not user.is_authenticated %}
-          				<a href="{% url 'registration:login' %}?next={{next}}" class="btn btn-block btn-social btn-facebook upvote">
-              				<i class="fa fa-sign-in"></i>
-            				Log in to Vote
-          				</a>
-        				{% elif business.pk not in voted %}
-          				<button class="btn btn-sm btn-success upvote"><i class="fa fa-thumbs-up"></i></button>
-        			{% else %}
-            			<button class="btn btn-block btn-social btn-twitter upvote" title="Recommended by {{ business.votes }} pe{{ business.votes|pluralize:"rson,ople" }}">
-              				<i class="fa">{{ business.votes }}</i>
-            				<span>Recommend</span>
-          				</button>
-        			{% endif %}
-      				</form>
-	    		</div>
-	    		<div class="col-md-12">
-	    			<p>{{ business.description }}</p>
-	    		</div>
+<div id="business" class="info-panel">
+	<div class="row">
+	<div class="col-md-8">
+		<div class="panel panel-default">
+	  		<div class="panel-body">
+	    		<h1 class="text-info">{{ business }}</h1>
+		  		{% if business.image %}
+		    	<img src="{{ business.image.url }}" height="400" width="767" class="img-rounded img-responsive" alt="{{ business }}">
+		    	{% else %}
+		    	<img src="/static/front/img/placeholder-640x480.png" height="400" width="767" class="img-rounded" alt="{{ business }}">
+		    	{% endif %}
 	  		</div>
-	  	</div>
+		</div>
 	</div>
+	<div class="col-md-4">
+		<div class="panel panel-default">
+	  		<div class="panel-body">
+				<p><kbd><i class="fa fa-phone"></i></kbd> {{ business.phone_number }}</p>
+				<p><kbd><i class="fa fa-envelope-o"></i></kbd> {{ business.email}}</p>
+				<p><kbd><i class="glyphicon glyphicon-map-marker"></i></kbd> {{ business.street_address}}</p>
+	    		{% if business.website %}
+	    		<p><kbd><i class="fa fa-external-link"></i></kbd> <a href="{{ business.website }}" target="_blank">View Site</a></p>
+	    		{% endif %}
+				<form method="post" action="{% url 'reviews:vote' %}" class="vote_form" role="form">
+					{% csrf_token %}
+					<input type="hidden" id="id_business" name="business" class="hidden_id" value="{{ business.pk }}" />
+					<input type="hidden" id="id_voter" name="voter" class="hidden_id" value="{{ user.pk }}" />
+				{% if not user.is_authenticated %}
+	  				<a href="{% url 'registration:login' %}?next={{next}}" class="btn btn-block btn-social btn-facebook upvote">
+	      				<i class="fa fa-sign-in"></i>
+	    				Log in to Vote
+	  				</a>
+					{% elif business.pk not in voted %}
+	  				<button class="btn btn-sm btn-success upvote"><i class="fa fa-thumbs-up"></i></button>
+				{% else %}
+	    			<button class="btn btn-block btn-social btn-twitter upvote" title="Recommended by {{ business.votes }} pe{{ business.votes|pluralize:"rson,ople" }}">
+	      				<i class="fa">{{ business.votes }}</i>
+	    				<span>Recommend</span>
+	  				</button>
+				{% endif %}
+					</form>
+	  		</div>
+		</div>
+	</div>
+
+	<div class="col-md-12">
+		<div class="panel panel-default">
+	  		<div class="panel-body">
+				<p class="lead">{{ business.description }}</p>
+	  		</div>
+		</div>
+	</div>
+	</div>
+</div>
 	<div id="comment" class="panel panel-default">
 	  	<div class="panel-body">
 	 		{% get_comment_count for business as comment_count %}
