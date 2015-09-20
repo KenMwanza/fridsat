@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models import Count
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
+from taggit.managers import TaggableManager
 
 class BusinessVoteCountManager(models.Manager):
     def get_queryset(self):
@@ -26,6 +27,8 @@ class Business(models.Model):
 
     with_votes = BusinessVoteCountManager()
     objects = models.Manager() #default manager
+
+    tags = TaggableManager()
 
 
     class Meta:

@@ -47,6 +47,7 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     'django.contrib.flatpages',
     'haystack',
+    'taggit',
     'front',
     'registration',
     'reviews',

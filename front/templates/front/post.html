@@ -58,6 +58,12 @@
             </div>
           </div>
           <div class="col-md-12">
+            <div class="form-group has-feedback {% if form.phone_number.errors %} alert alert-danger {% endif %}">
+               <input type="text" class="form-control" name="tags" placeholder="Tags (e.g. hotel, five-star, seafood)">
+               <i class="glyphicon glyphicon-tags form-control-feedback"></i> 
+            </div>
+          </div>
+          <div class="col-md-12">
             <div class="form-group has-feedback {% if form.website.errors %} alert alert-danger {% endif %}">
                {{ form.website }}
                <i class="glyphicon glyphicon-globe form-control-feedback"></i>

@@ -60,9 +60,12 @@ def add_business(request):
             business.website = cd['website']
             business.email = cd['email']
             business.image = cd['image']
+            tags = cd['tags']
             business.phone_number = cd['phone_number']
             business.description = cd['description']
             business.save()
+            
+            business.tags.add(*tags)
             return HttpResponseRedirect('/' + business.slug)
     else:
         form = BusinessForm()
