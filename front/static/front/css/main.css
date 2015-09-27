@@ -330,8 +330,7 @@ body {
 }
 
 #comment {
-    width: 70%;
-    margin: 20px auto;
+    width: 100%;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px;

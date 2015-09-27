@@ -27,11 +27,13 @@ def business(request, slug):
     business = get_object_or_404(Business, slug=slug)
     category = Category.objects.get(name=business.category)
     county = County.objects.get(name=business.county)
+    related_businesses = business.tags.similar_objects()[:3]
     return render(request, 'front/business.html',
         {
             'business': business,
             'category': category,
             'county': county,
+            'related_businesses': related_businesses,
         }
     )
 

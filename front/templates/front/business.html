@@ -69,16 +69,31 @@
 		</div>
 	</div>
 
-	<div class="col-md-12">
+	<div class="col-md-4">
+		<div class="panel panel-default">
+	  		<div class="panel-body">
+	  			<h2>Related Businesses</h2>
+				{% for business in related_businesses %}
+					<ul class="list-unstyled">
+					    <li>
+					      	<h3><b><a href="{{ business.get_absolute_url }}">{{ business.name }}</a></b></h3>
+					      	<small>{{ business.description|truncatechars:100 }}</small>
+					    </li>
+					</ul>
+				{% empty %}
+		    	Sorry, there are no related businesses for this listing.
+				{% endfor %}
+	  		</div>
+		</div>
+	</div>
+
+	<div class="col-md-8">
 		<div class="panel panel-default">
 	  		<div class="panel-body">
 				<h2>About {{ business.name }}</h2>
 				<p class="lead">{{ business.description }}</p>
 	  		</div>
 		</div>
-	</div>
-	</div>
-</div>
 	<div id="comment" class="panel panel-default">
 	  	<div class="panel-body">
 	 		{% get_comment_count for business as comment_count %}
@@ -106,6 +121,9 @@
 			</div>
 		</div>
 	</div>
+	</div>
+	</div>
+</div>
 {% endblock %}
 {% block js %}
 <script src="{% static 'reviews/js/vendor/jquery.raty.js' %}"></script>
