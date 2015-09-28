@@ -4,6 +4,7 @@ from django.contrib.sitemaps.views import sitemap
 from django.contrib.sitemaps import FlatPageSitemap
 from django.conf import settings
 from django.contrib import admin
+from cms.sitemaps import CMSSitemap
 from front.sitemaps import BusinessSitemap, CountySitemap, CategorySitemap
 
 sitemaps = {
@@ -26,5 +27,6 @@ urlpatterns = patterns('',
     url(r'^', include('registration.urls', namespace="registration")),
     url('', include('social.apps.django_app.urls', namespace='social')),
     (r'^comments/', include('django_comments.urls')),
+    url(r'^blog/sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': {'cmspages': CMSSitemap}}),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
