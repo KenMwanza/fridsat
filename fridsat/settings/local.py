@@ -8,16 +8,15 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
+# -*- coding: utf-8 -*-
+gettext = lambda s: s
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # Additional location of templates folder 
 from os.path import join
-TEMPLATE_DIRS = (
-  join(BASE_DIR,  'templates'),
-)
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -49,27 +48,47 @@ INSTALLED_APPS = (
     'haystack',
     'taggit',
     'front',
+    'cms',
+    'mptt',
+    'menus',
+    'sekizai',
+    'djangocms_admin_style',
+    'treebeard',
     'registration',
     'reviews',
     'django.contrib.admin',
     'social.apps.django_app.default',
     'django_comments',
+    'reversion',
+    'djangocms_text_ckeditor',
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.media',
-    'django.core.context_processors.static',
-    'django.core.context_processors.tz',
-    'django.contrib.messages.context_processors.messages',
-    #'social.apps.django_app.context_processors.backends',
-    'social.apps.django_app.context_processors.login_redirect',
-)
-
-# Custom Context Processors
-TEMPLATE_CONTEXT_PROCESSORS += ("front.context_processors.categories_processor", )
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR,  'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                # Insert your TEMPLATE_CONTEXT_PROCESSORS here or use this
+                # list if you haven't customized them:
+                'django.contrib.auth.context_processors.auth',
+                'django.core.context_processors.debug',
+                'django.core.context_processors.i18n',
+                'django.core.context_processors.media',
+                'django.core.context_processors.static',
+                'django.core.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+                #'social.apps.django_app.context_processors.backends',
+                'social.apps.django_app.context_processors.login_redirect',
+                'django.template.context_processors.request',
+                'sekizai.context_processors.sekizai',
+                'cms.context_processors.cms_settings',
+                'front.context_processors.categories_processor',
+            ],
+        },
+    },
+]
 
 AUTHENTICATION_BACKENDS = (
     #'social.pipeline.social_auth.associate_by_email',
@@ -96,6 +115,12 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'django.contrib.admindocs.middleware.XViewMiddleware',
+    'cms.middleware.user.CurrentUserMiddleware',
+    'cms.middleware.page.CurrentPageMiddleware',
+    'cms.middleware.toolbar.ToolbarMiddleware',
+    'cms.middleware.language.LanguageCookieMiddleware',
 )
 
 # Custom MIDDLEWARE_CLASSES
@@ -134,6 +159,22 @@ HAYSTACK_CONNECTIONS = {
 }
 
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+
+# For Django-CMS
+
+MIGRATION_MODULES = {
+    'cms': 'cms.migrations_django',
+    'menus': 'menus.migrations_django',
+}
+
+CMS_TEMPLATES = (
+    ('cms/template_1.html', 'Template One'),
+    ('cms/template_2.html', 'Template Two'),
+)
+
+LANGUAGES = [
+  ('en-us', 'English'),
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/

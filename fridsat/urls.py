@@ -19,6 +19,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^blog/', include('cms.urls')),
     url(r'', include('django.contrib.auth.urls')),
     url(r'^', include('front.urls', namespace="front")),
     url(r'^reviews/', include('reviews.urls', namespace="reviews")),

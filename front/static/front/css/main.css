@@ -159,6 +159,13 @@ body {
     display: none;
 }
 
+#text-cms {
+    font-size: large;
+    display: block;
+    background-color: #fff;
+    margin: 0 0 10px 0;
+}
+
 #businesses {
     margin: 10px auto;
     width: 70%;
