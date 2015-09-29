@@ -62,6 +62,9 @@ INSTALLED_APPS = (
     'social.apps.django_app.default',
     'django_comments',    
     'reversion',
+    'easy_thumbnails',
+    'filer',
+    'djangocms_picture',
     'djangocms_text_ckeditor',
 )
 
@@ -171,7 +174,6 @@ MIGRATION_MODULES = {
 
 CMS_TEMPLATES = (
     ('cms/template_1.html', 'Template One'),
-    ('cms/template_2.html', 'Template Two'),
 )
 
 LANGUAGES = [
