@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="{% static 'accounts/css/vendor/bootstrap-social.css' %}">
 <link rel="stylesheet" href="{% static 'reviews/css/vendor/jquery.raty.css' %}">
-<meta name="description" content="View {{ business }}'s phone number, email, web address, location and more in {{ county }} County on Bizbay">
+<meta name="description" content="{{ business.description|truncatechars:40 }}. View {{ business }}'s phone number, email address, web address, location and more in {{ county }} on Bizbay.">
 {% endblock %}
 {% block title %}{{ business }}, {{ county }}{% endblock %}
 {% block content %}
@@ -21,14 +21,14 @@
 	<div class="breadcrumbs flat">
 		<a href="{% url 'front:index' %}" class="active">Home</a>
 		<a href="{{ category.get_absolute_url }}">{{ business.category|truncatechars:15 }}</a>
-		<a href="{{ business.get_absolute_url }}">{{ business.name|truncatechars:35 }}</a>
+		<a href="{{ business.get_absolute_url }}">{{ business.name|truncatechars:32 }}</a>
 	</div>
 <div id="business" class="info-panel">
 	<div class="row">
 		<div class="col-md-7">
 			<div class="panel panel-default">
 		  		<div class="panel-body">
-		    		<h1 class="text-info">{{ business }}</h1>
+		    		<h1>{{ business }}</h1>
 			  		{% if business.image %}
 			    	<img src="{{ business.image.url }}" height="400" width="767" class="img-rounded img-responsive" alt="{{ business }}">
 			    	{% else %}
