@@ -82,8 +82,71 @@ body {
     width: 100%;
     padding-bottom: 20px;
     margin-bottom: 20px;
-    background-image: url('/static/front/img/nairobi-day');
-    background-repeat: no-repeat;
+    background-image: url('/static/front/img/nairobi1.jpg');
+}
+
+#blob {
+    font-size: large;
+}
+
+#blob h1 {
+    text-align: center;
+}
+
+#index-search {
+    width: 100%;
+    padding: 15px;
+    margin: 150px auto 50px auto;
+    background: #444;
+    background: rgba(0,0,0,.2);
+    border-radius: 10px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+}
+
+#index-search input {
+    float: left;    
+    font: bold 15px 'lucida sans', 'trebuchet MS', 'Tahoma';
+    border: 0;
+    background: #eee;
+    border-radius: 3px 0 0 3px;      
+}
+
+#index-search input:focus {
+    outline: 0;
+    background: #fff;
+    box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+}
+
+#index-search input::-webkit-input-placeholder {
+   color: #999;
+   font-weight: normal;
+   font-style: italic;
+}
+
+#index-search input:-moz-placeholder {
+    color: #999;
+    font-weight: normal;
+    font-style: italic;
+}
+
+#index-search input:-ms-input-placeholder {
+    color: #999;
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* Form submit button */
+#index-search button {
+    width: 80px;
+    color: #fff;
+    background: #d83c3c;
+    border-radius: 0 3px 3px 0;      
+    text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
+}
+@media only screen and (min-width: 320px) and (max-width : 480px) {
+  #index-search button {
+    width: 40px; 
+  } 
 }
 
 .container-fluid {

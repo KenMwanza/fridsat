@@ -1,13 +1,25 @@
-{% extends 'base.html' %}
 {% load staticfiles %}
-{% block head %}
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="{% static 'accounts/css/vendor/bootstrap-social.css' %}">
-<meta name="description" content="Find 1000+ businesses in Nairobi. Get street addresses, phone numbers, emails and web addresses for free.">
-{% endblock %}
-{% block title %}Business Directory, Reviews and Ratings in Nairobi{% endblock %}
-{% block content %}
-		{% block navbar %}{% endblock %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Bizbay</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'front/css/normalize.min.css' %}">
+        <link rel="stylesheet" href="{% static 'front/css/main.css' %}">
+        <link rel="shortcut icon" type="image/png" href="{% static 'front/img/favicon.png' %}"/>
+        <script src="{% static 'front/js/vendor/modernizr-2.6.2.min.js' %}"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
       <div id="index">
         <nav class="navbar" role="navigation">
           <div id="container-fluid-index" class="container-fluid">
@@ -64,22 +76,120 @@
               	<div class="input-group">
   	                <input type="text" name="q" class="form-control" placeholder="Search for over 1000 businesses in Nairobi">
   	                <span class="input-group-btn">
-  	                    <button type="submit" class="btn btn-info"><i class="fa fa-search"></i></button>
+  	                    <button type="submit" class="btn"><i class="fa fa-search"></i></button>
   	                </span>
                   </div>
           	</form>
         </div>
-        <img id="jumbo" src="{% static 'front/img/favicono.png' %}" class="img-responsive" width="200" height="200"> 
       	<div id="links-panel" class="panel panel-default">
       		<div class="panel-body">
             		<div class="row">
             		{% for category in categories %}
                		<div class="col-md-3">
-            				<a href="{{ category.get_absolute_url }}" title="{{ category }}"><i class="{{ category.icon }} fa-3x"></i><p>{{ category }}</p></a>
+            				<a href="{{ category.get_absolute_url }}" title="{{ category }}"><i class="{{ category.icon }} fa-2x"></i><p>{{ category }}</p></a>
             			</div>
             		{% endfor %}
             		</div>
         		</div>
      		</div>
       </div>
-{% endblock %}
+      <div id="blob" class="container">
+        <img id="jumbo" src="{% static 'front/img/favicono.png' %}" class="img-responsive" width="200" height="200">
+        <h1><b><i>Bizbay - Find a business near you.</i></b></h1>
+        <div class="row">
+          <div class="col-md-6">
+            <p>Bizbay is Nairobi's first hyperlocal business directory that helps you find businesses in your neighbourhood. We have listed local establishments by their names, locations and contact details across different industries. Uncover local treasures that you can’t find at home.
+            </p>
+            <p>Bizbay connects businesses with communities around neighbourhoods in the city. It is visual, simple and a breeze to use. It is also fun, friendly and safe place to find businesses that sell what you need in your area, wherever that may be.</p>
+            <p>Explore the world through the lens of what’s local—in your neighborhood, your favorite cities or around the world. See what’s around you within a 3-block radius or uncover local treasures elsewhere you can’t find at home.</p>
+            <p>We also allow registered users to add businesses that are not already listed on the site. You do not need to be tech savvy to create a business listing on the Bizbay. Whether you want to add hundreds of businesses or just a few, you can get started in no time.</p>
+            <p>Listed businesses get the chance to be visible online. Target your listings locally by specifying the Nairobi area in which it is located as well as the category in which it operates in.</p>
+            <p>Through Bizbay, users are able to post reviews and ratings of businesses they have visited. This, in effect, helps users better analyze a businesses before engaging them.</p>
+            <p>We've carefully crafted Bizbay to give honest people a trusted environment to add businesses and review them. As a member-based directory, we're able to weed out the spammers and fraudsters. We go to great lengths to maintain the highest level of trust and safety.</p>
+          </div>
+          <div class="col-md-6">
+            <p>Local and in-person commerce brings neighbors together and strengthens local economies. It also saves time, money and the hassle of packing, shipping and returns.
+            </p>
+            <p>Bizbay is about what's right next door.You do not need to travel a long distance just to buy an item or a service you could have found in your estate.</p>
+            <p>On our listings, you’re not flooded with tons of irrelevant results. When listings are fewer and nearby, it creates a cozy environment for the local community to get to know one another. Local commerce also means less static and fewer scams.</p>
+            <p>But it’s not only about safety, simplicity and investing in your local community. Actually seeing the item you're buying and hearing first hand the backstory, adds a layer of richness to the transaction that is difficult to replicate online.</p>
+          </div>
+        </div>
+      </div>
+      <div id="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <p><a href="/about/about-us/">About Bizbay</a></p>
+              <p><a href="/about/contacts/">Contact Bizbay</a></p>
+              <p><a href="">Claim Your Business</a></p>
+            </div>
+            <div class="col-md-4">
+              <p><a href="">FAQs</a></p>
+              <p><a href="">Terms of Service</a></p>
+              <p><a href="">Blog</a></p>
+            </div>
+            <div class="col-md-4">
+              <p><a href="">Privacy Policy</a></p>
+              <p><a href="">Content Guidelines</a></p>
+              <p><a href="">Business Support</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="modal-signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div id="modal-dialog-signup" class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+            </div>
+            <div class="modal-body">
+                <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}" class="btn btn-block btn-social btn-facebook">
+                <i class="fa fa-facebook"></i>
+              Sign up with Facebook
+            </a>
+            <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}" class="btn btn-block btn-social btn-google">
+                <i class="fa fa-google"></i>
+              Sign up with Google
+            </a>
+            <p><span>Log In</span></p>
+            <form action="{% url 'django.contrib.auth.views.login' %}?next={{next}}" method="post" role="form">
+            {% csrf_token %}
+              <div id="col-username-login">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="username" placeholder="Username">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" name="password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-primary form-control" type="submit">Log in</button>
+                </div>
+              </div>
+            </form>
+            </div>
+            <div class="modal-footer">
+                <span>By signing up, I agree to Bizbay's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+      <script src="{% static 'front/js/main.js' %}"></script>
+
+      <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-66704501-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+    </body>
+</html>
