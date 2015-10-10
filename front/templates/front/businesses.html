@@ -16,34 +16,40 @@
 {% endblock %}
 
 {% block content %}
-			<div id="businesses" class="panel panel-default">
-			    <div class="panel-body">
-			    	{% if category %}
-			    	<h2>You are viewing the <b>{{ category }}</b> category...</h2>
-			    	{% else %}
-			    	<h2>You are viewing businesses in {{ county }} county...</h2>
-			    	{% endif %}
+		    	{% if category %}
+		    	<h1 class="heading-businesses">You are viewing the <b>{{ category }}</b> category...</h1>
+		    	{% else %}
+		    	<h1 class="heading-businesses">You are viewing businesses in <b>{{ county }}</b> county...</h1>
+		    	{% endif %}
 				{% for business in businesses %}
-					{% get_comment_count for business as comment_count %}
-					<ul class="list-unstyled">
-					    <li>
+				{% get_comment_count for business as comment_count %}
+	            <div class="lib-item" data-category="view">
+	                <div class="lib-panel">
+	                    <div class="row box-shadow">
+	                        <div class="col-md-6">
 						  	{% if business.image %}
 							<img src="{{ business.image.url }}" alt="{{ business.name }}" width="100" height="105" class="img-square">
 							{% else %}
 							<img src="/static/front/img/placeholder-640x480.png" height="100" width="105" class="img-rounded" alt="Rounded Image">
 							{% endif %}
-							<span><small class="text-primary">{{ business.vote_set.count }} recommendation{{ business.vote_set.count|pluralize:"s" }}</small></span>
-					      	<span><small class="text-success">{{ comment_count }} review{{ comment_count|pluralize:"s" }}</small></span>
-					      	<h3><b><a href="{{ business.get_absolute_url }}">{{ business.name }}</a></b></h3>
-					      	<p>{{ business.description|truncatechars:100 }}</p>
-					      	<p>{{ business.county }} County | {{ business.street_address }} | {{ business.email }} | {{ business.phone_number }}</p>
-					    </li>
-					</ul>
+	                        </div>
+	                        <div class="col-md-6">
+	                            <div class="lib-row lib-header">
+	                                <b><a href="{{ business.get_absolute_url }}">{{ business.name|truncatechars:26 }}</a></b>
+	                                <div class="lib-header-seperator"></div>
+	                            </div>
+	                            <div class="lib-row lib-desc">
+	                                <small>{{ business.street_address }} | {{ business.email }} | {{ business.phone_number }}</small>
+									<small class="text-primary">{{ business.vote_set.count }} recommendation{{ business.vote_set.count|pluralize:"s" }}</small>
+							      	<small class="text-success">{{ comment_count }} review{{ comment_count|pluralize:"s" }}</small>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
 				{% empty %}
 		    	Sorry, no business listings under <i>{% if category %}{{ category }}{% endif %}{% if county %}{{ county }}{% endif %}</i>.
 				{% endfor %}
-			  </div>
-			</div>
 {% endblock %}
 {% block js %}
 <script src="{% static 'reviews/js/vendor/jquery.raty.js' %}"></script>
