@@ -12,33 +12,37 @@
 {% endblock %}
 
 {% block content %}
-<img id="jumbo" src="{% static 'front/img/favicono.png' %}" class="img-responsive" width="200" height="200">
-<div id="search">
-            <div id="businesses" class="panel panel-default">
-                <div class="panel-body">
-                    <h2>Showing {{ page.object_list|length }} of {{ page.paginator.count }} results...</h2>
-                    {% if query %}
-                    {% for result in page.object_list %}
-                    {% get_comment_count for result.object as comment_count %}
-                    <ul class="list-unstyled">
-                        <li>
+                <h2>Showing {{ page.object_list|length }} of {{ page.paginator.count }} results...</h2>
+                {% if query %}
+                {% for result in page.object_list %}
+                {% get_comment_count for result.object as comment_count %}
+                <div class="lib-item" data-category="view">
+                    <div class="lib-panel">
+                        <div class="row box-shadow">
+                            <div class="col-md-6">
                             {% if result.object.image %}
                             <img src="{{ result.object.image.url }}" alt="{{ result.object.name|linebreaksbr }}" width="100" height="105" class="img-circle">
                             {% else %}
                             <img src="/static/front/img/placeholder-640x480.png" height="100" width="105" class="img-rounded" alt="{{ result.object.name|linebreaksbr }}">
                             {% endif %}
-                            <span><small class="text-primary">{{ result.object.vote_set.count }} recommendation{{ result.object.vote_set.count|pluralize:"s" }}</small></span>
-                            <span><small class="text-success">{{ comment_count }} review{{ comment_count|pluralize:"s" }}</small></span>
-                            <h3><b><a href="{{ result.object.get_absolute_url }}">{{ result.object.name|linebreaksbr }}</a></b></h3>
-                            <p>{{ result.object.description|truncatechars:100 }}</p>
-                            <p>{{ result.object.street_address }} | {{ result.object.email }} | {{ result.object.phone_number }}{% if result.object.website %} | <a href="{{ result.object.website }}">{{ result.object.website }}</a>{% endif %}</p>
-                        </li>
-                    </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="lib-row lib-header">
+                                    <b><a href="{{ result.object.get_absolute_url }}">{{ result.object.name|truncatechars:26 }}</a></b>
+                                    <div class="lib-header-seperator"></div>
+                                </div>
+                                <div class="lib-row lib-desc">
+                                    <small>{{ result.object.street_address }} | {{ result.object.email }} | {{ result.object.phone_number }}</small>
+                                    <small class="text-primary">{{ result.object.vote_set.count }} recommendation{{ result.object.vote_set.count|pluralize:"s" }}</small>
+                                    <small class="text-success">{{ comment_count }} review{{ comment_count|pluralize:"s" }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 {% empty %}
-                Sorry, no results found.</i>.
+                <i>Sorry, no results found.</i>
                 {% endfor %}
-              </div>
-            </div>
         {% if page.has_previous or page.has_next %}
             <div>
                 {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
@@ -49,6 +53,4 @@
         {% else %}
             {# Show some example queries to run, maybe query syntax, something else? #}
         {% endif %}
-    <!--</form>-->
-</div>
 {% endblock %}
