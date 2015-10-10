@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block content %}
-                <h2>Showing {{ page.object_list|length }} of {{ page.paginator.count }} results...</h2>
+                <h1 class="heading-businesses">Showing {{ page.object_list|length }} of {{ page.paginator.count }} results...</h1>
                 {% if query %}
                 {% for result in page.object_list %}
                 {% get_comment_count for result.object as comment_count %}
