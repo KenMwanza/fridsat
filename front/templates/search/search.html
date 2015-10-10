@@ -21,9 +21,9 @@
                         <div class="row box-shadow">
                             <div class="col-md-6">
                             {% if result.object.image %}
-                            <img src="{{ result.object.image.url }}" alt="{{ result.object.name|linebreaksbr }}" width="100" height="105" class="img-circle">
+                            <img src="{{ result.object.image.url }}" alt="{{ result.object.name|linebreaksbr }}" width="100" height="105" class="img-square">
                             {% else %}
-                            <img src="/static/front/img/placeholder-640x480.png" height="100" width="105" class="img-rounded" alt="{{ result.object.name|linebreaksbr }}">
+                            <img src="/static/front/img/placeholder-640x480.png" height="100" width="105" class="img-square" alt="{{ result.object.name|linebreaksbr }}">
                             {% endif %}
                             </div>
                             <div class="col-md-6">
