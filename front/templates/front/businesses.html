@@ -26,20 +26,20 @@
 	            <div class="lib-item" data-category="view">
 	                <div class="lib-panel">
 	                    <div class="row box-shadow">
-	                        <div class="col-md-6">
+	                        <div class="col-md-3">
 						  	{% if business.image %}
-							<img src="{{ business.image.url }}" alt="{{ business.name }}" width="100" height="105" class="img-square">
+							<img src="{{ business.image.url }}" alt="{{ business.name }}" height="105" class="img-square">
 							{% else %}
-							<img src="/static/front/img/placeholder-640x480.png" height="100" width="105" class="img-square" alt="{{ business.name }}">
+							<img src="/static/front/img/placeholder-640x480.png" height="105" width="105" class="img-square" alt="{{ business.name }}">
 							{% endif %}
 	                        </div>
-	                        <div class="col-md-6">
+	                        <div class="col-md-9">
 	                            <div class="lib-row lib-header">
 	                                <b><a href="{{ business.get_absolute_url }}">{{ business.name|truncatechars:26 }}</a></b>
 	                                <div class="lib-header-seperator"></div>
 	                            </div>
 	                            <div class="lib-row lib-desc">
-	                                <small>{{ business.street_address }} | {{ business.email }} | {{ business.phone_number }}</small>
+	                                <small>{{ business.street_address }} | {{ business.email }} | {{ business.phone_number }} | {{ business.description|truncatechars:100 }} </small>
 									<small class="text-primary">{{ business.vote_set.count }} recommendation{{ business.vote_set.count|pluralize:"s" }}</small>
 							      	<small class="text-success">{{ comment_count }} review{{ comment_count|pluralize:"s" }}</small>
 	                            </div>
