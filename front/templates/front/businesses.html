@@ -50,7 +50,7 @@
 	                </div>
 	            </div>
 				{% empty %}
-		    	Sorry, no business listings under <i>{% if category %}{{ category }}{% endif %}{% if county %}{{ county }}{% endif %}{% if area %}{{ area }}{% endif %}</i>.
+		    	Sorry, no business listings under <i>{% if category %}{{ category }}{% endif %}{% if county %}{{ county }}{% endif %}{% if area %}, {{ area }}{% endif %}</i>.
 				{% endfor %}
 {% endblock %}
 {% block js %}
