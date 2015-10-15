@@ -39,7 +39,6 @@ LOGIN_REDIRECT_URL = '/home'
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -56,6 +55,7 @@ INSTALLED_APPS = (
     'menus',
     'sekizai',
     'djangocms_admin_style',
+    'django.contrib.admin',
     'treebeard',
     'registration',
     'reviews',
