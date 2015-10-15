@@ -1,6 +1,6 @@
 from django import forms
 from taggit.forms import TagField
-from front.models import County, Business, Category
+from front.models import County, Business, Category, Area
 
 class BaseForm(forms.Form):
     def __init__(self, *args, **kwargs):
@@ -17,6 +17,7 @@ class BusinessForm(BaseModelForm):
 	image = forms.ImageField(label='Select an image')
 	category = forms.ModelChoiceField(queryset=Category.objects.all(), empty_label="Category")
 	county = forms.CharField(widget=forms.HiddenInput(), initial="Nairobi")
+	area = forms.ModelChoiceField(queryset=Area.objects.all(), empty_label="Area")
 	street_address = forms.CharField(widget=forms.TextInput(attrs={'class' : 'form-control', 'type':'text', 'placeholder':'Street address (e.g. Moi Avenue, Nairobi)'}))
 	website = forms.URLField(widget=forms.TextInput(attrs={'class' : 'form-control', 'type':'text', 'placeholder':'Web URL (Optional)'}))
 	tags = TagField()
@@ -26,4 +27,4 @@ class BusinessForm(BaseModelForm):
 
 	class Meta:
 		model = Business
-		fields = ['name', 'category', 'county', 'street_address', 'email', 'phone_number', 'description', 'tags']
+		fields = ['name', 'category', 'county', 'area', 'street_address', 'email', 'phone_number', 'description', 'tags']

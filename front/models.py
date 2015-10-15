@@ -15,6 +15,7 @@ class Business(models.Model):
     name = models.CharField(max_length=200, unique=True)
     category = models.CharField(max_length=50, blank=False, null=False)
     county = models.CharField(max_length=20)
+    area = models.CharField(max_length=80, blank=True, null=True)
     street_address = models.CharField(max_length=100)
     email = models.EmailField(max_length=70, blank=True)
     phone_number = models.CharField(max_length=25, blank=True)
@@ -81,6 +82,9 @@ class Area(models.Model):
             self.slug = slugify(self.name)
 
         super(Area, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return "/%s/%s/" % (self.county.slug, self.slug)
 
 class Category(models.Model):
     name = models.CharField(max_length=50, unique=True)

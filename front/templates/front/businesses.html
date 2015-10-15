@@ -18,6 +18,8 @@
 {% block content %}
 		    	{% if category %}
 		    	<h1 class="heading-businesses">You are viewing the <b>{{ category }}</b> category...</h1>
+		    	{% elif area %}
+		    		<h1 class="heading-businesses">You are viewing businesses in <b>{{ area }}</b> area...</h1>
 		    	{% else %}
 		    	<h1 class="heading-businesses">You are viewing businesses in <b>{{ county }}</b> county...</h1>
 		    	{% endif %}
@@ -48,7 +50,7 @@
 	                </div>
 	            </div>
 				{% empty %}
-		    	Sorry, no business listings under <i>{% if category %}{{ category }}{% endif %}{% if county %}{{ county }}{% endif %}</i>.
+		    	Sorry, no business listings under <i>{% if category %}{{ category }}{% endif %}{% if county %}{{ county }}{% endif %}{% if area %}{{ area }}{% endif %}</i>.
 				{% endfor %}
 {% endblock %}
 {% block js %}

@@ -1,17 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from front.forms import BusinessForm
-from front.models import Business, Category, County
+from front.models import Business, Category, County, Area
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
 def index(request):
-    counties = County.objects.all()
-    businesses = Business.objects.all()
-    return render(request, 'front/index.html',
-        {
-            'counties': counties,
-        }
-    )
+    return render(request, 'front/index.html')
 
 def category(request, slug):
     category = get_object_or_404(Category, slug=slug)
@@ -47,6 +41,18 @@ def county(request, slug):
         }
     )
 
+def area(request, county, area):
+    county = get_object_or_404(County, slug=county)
+    area = get_object_or_404(Area, slug=area)
+    businesses = Business.objects.all().filter(county=county, area=area)
+    return render(request, 'front/businesses.html',
+        {
+            'businesses': businesses,
+            'area': area,
+            'county': county,
+        }
+    )
+
 @login_required(login_url='/login/')
 def add_business(request):
     if request.method == "POST":
@@ -58,6 +64,7 @@ def add_business(request):
             business.name = cd['name']
             business.category = cd['category']
             business.county = cd['county']
+            business.area = cd['area']
             business.street_address = cd['street_address']
             business.website = cd['website']
             business.email = cd['email']
