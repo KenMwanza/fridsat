@@ -16,7 +16,7 @@ class Business(models.Model):
     category = models.CharField(max_length=50, blank=False, null=False)
     county = models.CharField(max_length=20)
     street_address = models.CharField(max_length=100)
-    email = models.EmailField(max_length=70,blank=True)
+    email = models.EmailField(max_length=70, blank=True)
     phone_number = models.CharField(max_length=25, blank=True)
     description = models.TextField(blank=True, null=True)
     website = models.URLField(blank=True, null=True)
@@ -74,6 +74,13 @@ class Area(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            # Newly created object, so set slug
+            self.slug = slugify(self.name)
+
+        super(Area, self).save(*args, **kwargs)
 
 class Category(models.Model):
     name = models.CharField(max_length=50, unique=True)
