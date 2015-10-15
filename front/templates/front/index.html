@@ -46,7 +46,7 @@
               {% if areas %}
                 <li class="dropdown">
 
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="{% static 'front/img/counties.png' %}" height="21"/> Browse by Area <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Browse by Area <span class="caret"></span></a>
                   <ul class="dropdown-menu scrollable-menu">
                     {% for area in areas %}
                     <li><a href="{{ area.get_absolute_url }}">{{ area }}</a></li>
