@@ -5,13 +5,14 @@ from django.contrib.sitemaps import FlatPageSitemap
 from django.conf import settings
 from django.contrib import admin
 from cms.sitemaps import CMSSitemap
-from front.sitemaps import BusinessSitemap, CountySitemap, CategorySitemap
+from front.sitemaps import BusinessSitemap, CountySitemap, CategorySitemap, AreaSitemap
 
 sitemaps = {
     'flatpages': FlatPageSitemap,
     'business': BusinessSitemap,
     'county': CountySitemap,
     'category': CategorySitemap,
+    'area': AreaSitemap,
 }
 
 urlpatterns = patterns('',

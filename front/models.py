@@ -84,7 +84,7 @@ class Area(models.Model):
         super(Area, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return "/%s/%s/" % (self.county.slug, self.slug)
+        return "/county/%s/%s/" % (self.county.slug, self.slug)
 
 class Category(models.Model):
     name = models.CharField(max_length=50, unique=True)
