@@ -111,8 +111,10 @@
         </div>
       {% endif %}
       {% block content %}{% endblock %}
+      </div>
       {% block footer %}
-      <div id="footer">
+    <footer class="footer">
+      <div class="container">
         <div class="row">
           <div class="col-md-4">
             <p><a href="/about/about-us/">About Bizbay</a></p>
@@ -131,8 +133,8 @@
           </div>
         </div>
       </div>
+    </footer>
       {% endblock %}
-      </div>
 
     <!-- Modal -->
     <div class="modal fade" id="modal-signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
