@@ -1,6 +1,13 @@
-<html>
-<title>File Not Found</title>
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load comments %}
+{% block head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">
+<link rel="stylesheet" href="{% static 'accounts/css/vendor/bootstrap-social.css' %}">
+{% endblock %}
+{% block title %}File Not Found{% endblock %}
+{% block content %}
 <h1>Oops, we do not find what you are looking for</h1>
 <p>It seems that we have put that page in a place we can't remember, as we can not find it.</p>
-<p>If you are sure that the page you are looking for should be here please contact the webmaster, or go to our <a href="/">home pagez/a> and continue from there</p>
-</html>
+<p>If you are sure that the page you are looking for should be here please contact the webmaster, or go to our <a href="/">home pages</a> and continue from there</p>
+{% endblock %}

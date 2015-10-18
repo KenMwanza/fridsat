@@ -34,6 +34,8 @@ urlpatterns = patterns('',
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+# 404 and 500 error pages
+
 def handler404(request):
     response = render_to_response('404.html', {},
                                   context_instance=RequestContext(request))
