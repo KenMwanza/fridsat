@@ -20,15 +20,15 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
       <div id="index">
-        <nav class="navbar" role="navigation">
-          <div id="container-fluid-index" class="container-fluid">
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="container-fluid">
             <div class="navbar-header">
-              <button type="button" class="icon-bar-i navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
               <a class="navbar-brand" href="{% url 'front:index' %}"><img src="{% static 'front/img/bizbay.png' %}" height="30"/></a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -42,33 +42,33 @@
                 </a>
               </ul>
               <ul class="nav navbar-nav navbar-right">
-              <li><a href="/blog/">Blog</a></li>
-              {% if areas %}
-              <li class="dropdown mega-dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-map-marker"></i> Browse by Area <span class="caret"></span></a>
-                <ul class="dropdown-menu mega-dropdown-menu row">
-                  {% for area in areas %}
-                  <li class="col-sm-3">
-                    <ul>
-                      <li><a href="{{ area.get_absolute_url }}">{{ area }}</a></li>
-                    </ul>
-                  </li>
-                  {% endfor %}
-                </ul>
-              </li>
-              {% endif %}
-              {% if user.is_authenticated %}
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.get_full_name }} <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="{% url 'django.contrib.auth.views.logout' %}?next=/">Sign Out</a></li>
-                </ul>
-              </li>
-              {% else %}
-              <li>
-                <button id="signup" data-target="#modal-signup" data-toggle="modal" class="btn btn-success navbar-btn btn-md">Sign Up</button>
-              </li>
-              {% endif %}
+                <li><a href="/blog/">Blog</a></li>
+                {% if areas %}
+                <li class="dropdown mega-dropdown">
+                  <a href="#" class="dropdown-toggle index-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-map-marker"></i> Browse by Area <span class="caret"></span></a>
+                  <ul class="dropdown-menu mega-dropdown-menu row">
+                    {% for area in areas %}
+                    <li class="col-sm-3">
+                      <ul>
+                        <li><a href="{{ area.get_absolute_url }}">{{ area }}</a></li>
+                      </ul>
+                    </li>
+                    {% endfor %}
+                  </ul>
+                </li>
+                {% endif %}
+                {% if user.is_authenticated %}
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.get_full_name }} <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url 'django.contrib.auth.views.logout' %}?next=/">Sign Out</a></li>
+                  </ul>
+                </li>
+                {% else %}
+                <li>
+                  <button id="signup" data-target="#modal-signup" data-toggle="modal" class="btn btn-success navbar-btn btn-md">Sign Up</button>
+                </li>
+                {% endif %}
               </ul>
             </div>
           </div>
