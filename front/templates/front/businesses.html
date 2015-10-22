@@ -12,7 +12,7 @@
 {% block head %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">
 <link rel="stylesheet" href="{% static 'accounts/css/vendor/bootstrap-social.css' %}">
-<meta name="description" content="View emails, phone numbers, locations and other information about businesses under the {{ category }} category in Nairobi. Also view their user ratings and reviews.">
+<meta name="description" content="View emails, phone numbers, locations and other information about businesses under the {% if category %}{{ category }} category{% elif area %} {{ area }} area{% endif %} in Nairobi. Also view their user ratings and reviews.">
 {% endblock %}
 
 {% block content %}

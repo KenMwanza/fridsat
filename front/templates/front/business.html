@@ -30,9 +30,9 @@
 		  		<div class="panel-body">
 		    		<h1 itemprop="name">{{ business }}</h1>
 			  		{% if business.image %}
-			    	<img src="{{ business.image.url }}" height="400" width="767" class="img-rounded img-responsive" alt="{{ business }}">
+			    	<img src="{{ business.image.url }}" height="400" width="767" class="img-rounded img-responsive" alt="{{ business }}" itemprop="image">
 			    	{% else %}
-			    	<img src="/static/front/img/placeholder-640x480.png" height="400" width="767" class="img-rounded" alt="{{ business }}">
+			    	<img src="/static/front/img/placeholder-640x480.png" height="400" width="767" class="img-rounded" alt="{{ business }}" itemprop="image">
 			    	{% endif %}
 		  		</div>
 			</div>
