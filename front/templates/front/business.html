@@ -23,12 +23,12 @@
 		<a href="{{ category.get_absolute_url }}">{{ business.category|truncatechars:15 }}</a>
 		<a href="{{ business.get_absolute_url }}">{{ business.name|truncatechars:32 }}</a>
 	</div>
-<div id="business" class="info-panel">
+<div id="business" class="info-panel" itemscope itemtype="http://schema.org/LocalBusiness">
 	<div class="row">
 		<div class="col-md-7">
 			<div class="panel panel-default">
 		  		<div class="panel-body">
-		    		<h1>{{ business }}</h1>
+		    		<h1 itemprop="name">{{ business }}</h1>
 			  		{% if business.image %}
 			    	<img src="{{ business.image.url }}" height="400" width="767" class="img-rounded img-responsive" alt="{{ business }}">
 			    	{% else %}
@@ -39,7 +39,7 @@
 			<div class="panel panel-default">
 		  		<div class="panel-body">
 					<h2>About {{ business.name }}</h2>
-					<p class="lead">{{ business.description }}</p>
+					<p class="lead" itemprop="description">{{ business.description }}</p>
 		  		</div>
 			</div>
 			<div id="comment" class="panel panel-default">
@@ -74,11 +74,13 @@
 			<div class="panel panel-default">
 		  		<div class="panel-body">
 		  			<h2>Contact Details</h2>
-					<p><kbd><i class="fa fa-phone"></i></kbd> {{ business.phone_number }}</p>
-					<p><kbd><i class="fa fa-envelope-o"></i></kbd> {{ business.email}}</p>
-					<p><kbd><i class="glyphicon glyphicon-map-marker"></i></kbd> {{ business.street_address}}</p>
+					<p><kbd><i class="fa fa-phone"></i></kbd> <span itemprop="telephone">{{ business.phone_number }}</span></p>
+					<p><kbd><i class="fa fa-envelope-o"></i></kbd> <a href="mailto:{{ business.email }}" itemprop="email">{{ business.email }}</a></p>
+					<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+						<p><kbd><i class="glyphicon glyphicon-map-marker"></i></kbd> <span itemprop="streetAddress">{{ business.street_address}}</span></p>
+					</div>
 		    		{% if business.website %}
-		    		<p><kbd><i class="fa fa-external-link"></i></kbd> <a href="{{ business.website }}" target="_blank">View Site</a></p>
+		    		<p><kbd><i class="fa fa-external-link"></i></kbd> <a href="{{ business.website }}" target="_blank" itemprop="url">View Site</a></p>
 		    		{% endif %}
 					<form method="post" action="{% url 'reviews:vote' %}" class="vote_form" role="form">
 						{% csrf_token %}
