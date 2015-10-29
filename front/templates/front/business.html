@@ -18,15 +18,15 @@
 </div>
 
 <script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
-	<div class="breadcrumbs flat">
-		<a href="{% url 'front:index' %}" class="active">Home</a>
-		<a href="{{ category.get_absolute_url }}">{{ business.category|truncatechars:15 }}</a>
-		<a href="{{ business.get_absolute_url }}">{{ business.name|truncatechars:32 }}</a>
-	</div>
 <div id="business" class="info-panel" itemscope itemtype="http://schema.org/LocalBusiness">
+	<ol class="breadcrumb">
+		<li><a href="{% url 'front:index' %}" class="active">Home</a></li>
+		<li><a href="{{ category.get_absolute_url }}">{{ business.category|truncatechars:20 }}</a></li>
+		<li>{{ business.name|truncatechars:32 }}</li>
+	</ol>
 	<div class="row">
 		<div class="col-md-7">
-			<div class="panel panel-default">
+			<div class="card-biz">
 		  		<div class="panel-body">
 		    		<h1 itemprop="name">{{ business }}</h1>
 			  		{% if business.image %}
@@ -36,13 +36,13 @@
 			    	{% endif %}
 		  		</div>
 			</div>
-			<div class="panel panel-default">
+			<div class="card-biz">
 		  		<div class="panel-body">
 					<h2>About {{ business.name }}</h2>
 					<p class="lead" itemprop="description">{{ business.description }}</p>
 		  		</div>
 			</div>
-			<div id="comment" class="panel panel-default">
+			<div id="comment" class="card-biz">
 			  	<div class="panel-body">
 			 		{% get_comment_count for business as comment_count %}
 			 		<h4 class="lead">Write a Review</h4>
@@ -71,7 +71,7 @@
 			</div>
 		</div>
 		<div class="col-md-5">
-			<div class="panel panel-default">
+			<div class="card-biz">
 		  		<div class="panel-body">
 		  			<h2>Contact Details</h2>
 					<p><kbd><i class="fa fa-phone"></i></kbd> <span itemprop="telephone">{{ business.phone_number }}</span></p>
@@ -105,7 +105,7 @@
 		</div>
 
 		<div class="col-md-5">
-			<div class="panel panel-default">
+			<div class="card-biz">
 		  		<div class="panel-body">
 		  			<h2>Related Businesses</h2>
 					{% for business in related_businesses %}
