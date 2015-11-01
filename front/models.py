@@ -106,3 +106,27 @@ class Category(models.Model):
 
     def get_absolute_url(self):
         return "/category/%s/" % (self.slug)
+
+class CustomBusinessGroup(models.Model):
+    name = models.CharField(max_length=200, unique=True)
+    about = models.TextField()
+    slug = models.SlugField(max_length=1000, blank=True, null=True)
+
+    tags = TaggableManager()
+
+    class Meta:
+        verbose_name = "custom business group"
+        verbose_name_plural = "custom business groups"
+
+    def __unicode__(self):
+        return self.name
+            
+    def save(self, *args, **kwargs):
+        if not self.id:
+            # Newly created object, so set slug
+            self.slug = slugify(self.name)
+
+        super(CustomBusinessGroup, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return self.slug
