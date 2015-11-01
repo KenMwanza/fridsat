@@ -64,6 +64,14 @@ def custom_business_group(request, slug):
         }
     )
 
+def custom_business_groups(request):
+    custom_business_groups = CustomBusinessGroup.objects.all()
+    return render(request, 'front/custom_business_groups.html',
+        {
+            'custom_business_groups': custom_business_groups,
+        }
+    )
+
 @login_required(login_url='/login/')
 def add_business(request):
     if request.method == "POST":

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}
+Business Groups
+{% endblock %}
+
+{% block head %}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">
+	<link rel="stylesheet" href="{% static 'accounts/css/vendor/bootstrap-social.css' %}">
+	<meta name="description" content="This is a list of business groups that have been organized according to different characteristics that they have in common. All the businesses are based in Nairobi.">
+{% endblock %}
+
+{% block content %}
+			<div id="business" class="info-panel">
+		    	<h1 class="heading-businesses"><b>Custom Business Groups</b></h1>
+				{% for group in custom_business_groups %}
+	            <div class="lib-item card-biz">
+	                <div class="lib-panel">
+	                    <div class="row">
+	                        <div class="col-md-3">
+						  	{% if group.image %}
+							<img src="{{ group.image.url }}" alt="{{ group.name }}" height="105" class="img-square">
+							{% else %}
+							<img src="/static/front/img/placeholder-640x480.png" height="105" width="105" class="img-square" alt="{{ group.name }}">
+							{% endif %}
+	                        </div>
+	                        <div class="col-md-9">
+	                            <div class="lib-row lib-header">
+	                                <b><a href="{{ group.get_absolute_url }}">{{ group.name|truncatechars:90 }}</a></b>
+	                                <div class="lib-header-seperator"></div>
+	                            </div>
+	                            <div class="lib-row lib-desc">
+	                                {{ group.about|truncatechars:290 }}
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+				{% empty %}
+		    	Sorry, there are no custom business group listings found.
+				{% endfor %}
+			</div>
+{% endblock %}
+{% block js %}
+<script src="{% static 'reviews/js/vendor/jquery.raty.js' %}"></script>
+{% endblock %}

@@ -66,7 +66,7 @@
 	                </div>
 	            </div>
 				{% empty %}
-		    	Sorry, there are no business listings under <i>{% if category %}{{ category }}{% endif %}{% if area %}{{ area }}, {% endif %}{% if county %}{{ county }}{% endif %}</i>.
+		    	Sorry, there are no business listings under <i>{% if category %}{{ category }}{% endif %}{% if custom_business_group %}{{ custom_business_group }}{% endif %}{% if area %}{{ area }}, {% endif %}{% if county %}{{ county }}{% endif %}</i>.
 				{% endfor %}
 			</div>
 {% endblock %}
