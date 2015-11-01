@@ -10,6 +10,6 @@ urlpatterns = patterns('',
     url(r'^county/(?P<slug>[\w-]+)/$', views.county, name='county'),
     url(r'^county/(?P<county>[\w-]+)/(?P<area>[\w-]+)/$', views.area, name='area'),
     url(r'^custom/business-groups/$', views.custom_business_groups, name='custom_business_groups'),
-    url(r'^custom-business-groups/(?P<slug>[\w-]+)/$', views.custom_business_group, name='custom_business_group'),
+    url(r'^custom/business-groups/(?P<slug>[\w-]+)/$', views.custom_business_group, name='custom_business_group'),
     (r'^business/search', include('haystack.urls')),
 )
