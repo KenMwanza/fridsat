@@ -35,7 +35,7 @@
 		    		<h1 class="heading-businesses"><b>{{ area }}</b></h1>
 		    	{% elif custom_business_group %}
 		    		<h1 class="heading-businesses"><b>{{ custom_business_group }}</b></h1>
-		    		<p class="lead">{{ custom_business_group.about }}</p>
+		    		<p class="lead">{{ custom_business_group.about|linebreaksbr }}</p>
 		    	{% else %}
 		    	<h1 class="heading-businesses"><b>{{ county }}</b></h1>
 		    	{% endif %}
