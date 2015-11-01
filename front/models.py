@@ -112,6 +112,7 @@ class CustomBusinessGroup(models.Model):
     about = models.TextField()
     image = models.ImageField(upload_to='documents/%Y/%m/%d',  blank=True, null=True)
     slug = models.SlugField(max_length=1000, blank=True, null=True)
+    pub_date = models.DateTimeField(auto_now_add=True)
 
     tags = TaggableManager()
 
