@@ -7,7 +7,7 @@ from django.contrib import admin
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from cms.sitemaps import CMSSitemap
-from front.sitemaps import BusinessSitemap, CountySitemap, CategorySitemap, AreaSitemap
+from front.sitemaps import BusinessSitemap, CountySitemap, CategorySitemap, AreaSitemap, CustomBusinessGroupSitemap
 
 sitemaps = {
     'flatpages': FlatPageSitemap,
@@ -15,6 +15,7 @@ sitemaps = {
     'county': CountySitemap,
     'category': CategorySitemap,
     'area': AreaSitemap,
+    'custombusinessgroupSitemap': CustomBusinessGroupSitemap,
 }
 
 urlpatterns = patterns('',

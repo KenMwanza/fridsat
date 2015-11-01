@@ -8,6 +8,9 @@ class BusinessSitemap(Sitemap):
     def items(self):
         return Business.objects.all()
 
+    def lastmod(self, obj):
+        return obj.updated
+
 class CountySitemap(Sitemap):
     changefreq = 'never'
     priority = 1
@@ -35,3 +38,6 @@ class CustomBusinessGroupSitemap(Sitemap):
 
     def items(self):
         return CustomBusinessGroup.objects.all()
+
+    def lastmod(self, obj):
+        return obj.updated
