@@ -110,6 +110,7 @@ class Category(models.Model):
 class CustomBusinessGroup(models.Model):
     name = models.CharField(max_length=200, unique=True)
     about = models.TextField()
+    image = models.ImageField(upload_to='documents/%Y/%m/%d',  blank=True, null=True)
     slug = models.SlugField(max_length=1000, blank=True, null=True)
 
     tags = TaggableManager()
