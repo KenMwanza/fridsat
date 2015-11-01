@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from front.forms import BusinessForm
-from front.models import Business, Category, County, Area
+from front.models import Business, Category, County, Area, CustomBusinessGroup
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
@@ -50,6 +50,17 @@ def area(request, county, area):
             'businesses': businesses,
             'area': area,
             'county': county,
+        }
+    )
+
+def custom_business_group(request, slug):
+    custom_business_group = get_object_or_404(CustomBusinessGroup, slug=slug)
+    custom_business_group_tags = custom_business_group.tags.names()
+    businesses = Business.objects.filter(tags__name__in=custom_business_group_tags).distinct()
+    return render(request, 'front/businesses.html',
+        {
+            'custom_business_group': custom_business_group,
+            'businesses': businesses,
         }
     )
 

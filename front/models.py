@@ -129,4 +129,4 @@ class CustomBusinessGroup(models.Model):
         super(CustomBusinessGroup, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return self.slug
+        return "/custom-business-groups/%s/" % (self.slug)

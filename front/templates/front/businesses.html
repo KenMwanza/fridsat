@@ -5,14 +5,22 @@
 {% load comments %}
 
 {% block title %}
-	{% if category %}{{ category }} Businesses in Nairobi{% endif %}{% if area %}{{ area }} &laquo; {% endif %}
-	{% if county %}{{county}}{% endif %}
+	{% if custom_business_group %}
+		{{ custom_business_group }}
+	{% else %}
+			{% if category %}{{ category }} Businesses in Nairobi{% endif %}{% if area %}Businesses in {{ area }}, Nairobi &laquo; {% endif %}
+			{% if county %}Businesses in {{county}}{% endif %}
+	{% endif %}
 {% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">
-<link rel="stylesheet" href="{% static 'accounts/css/vendor/bootstrap-social.css' %}">
-<meta name="description" content="View emails, phone numbers, locations and other information about businesses under the {% if category %}{{ category }} category{% elif area %} {{ area }} area{% endif %} in Nairobi. Also view their user ratings and reviews.">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">
+	<link rel="stylesheet" href="{% static 'accounts/css/vendor/bootstrap-social.css' %}">
+	{% if custom_business_group %}
+	<meta name="description" content="{{ custom_business_group.about }}">
+	{% else %}
+	<meta name="description" content="View emails, phone numbers, street addresses and other information about businesses {% if category %}in Nairobi under the {{ category }} category{% elif area %}in {{ area }} area, Nairobi{% elif county %}in {{ county }}{% endif %}. Also view their user ratings and reviews.">
+	{% endif %}
 {% endblock %}
 
 {% block content %}
@@ -25,6 +33,9 @@
 				</ol>
 		    	{% elif area %}
 		    		<h1 class="heading-businesses"><b>{{ area }}</b></h1>
+		    	{% elif custom_business_group %}
+		    		<h1 class="heading-businesses"><b>{{ custom_business_group }}</b></h1>
+		    		<p class="lead">{{ custom_business_group.about }}</p>
 		    	{% else %}
 		    	<h1 class="heading-businesses"><b>{{ county }}</b></h1>
 		    	{% endif %}
