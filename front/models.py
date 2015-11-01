@@ -24,6 +24,7 @@ class Business(models.Model):
     image = models.ImageField(upload_to='documents/%Y/%m/%d',  blank=True, null=True)
     slug = models.SlugField(max_length=1000, blank=True, null=True)
     pub_date = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
     rank_score = models.FloatField(default=0.0)
 
     with_votes = BusinessVoteCountManager()
@@ -113,6 +114,7 @@ class CustomBusinessGroup(models.Model):
     image = models.ImageField(upload_to='documents/%Y/%m/%d',  blank=True, null=True)
     slug = models.SlugField(max_length=1000, blank=True, null=True)
     pub_date = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
     tags = TaggableManager()
 

@@ -1,5 +1,5 @@
 from django.contrib.sitemaps import Sitemap
-from front.models import Business, County, Category, Area
+from front.models import Business, County, Category, Area, CustomBusinessGroup
 
 class BusinessSitemap(Sitemap):
     changefreq = 'daily'
@@ -7,9 +7,6 @@ class BusinessSitemap(Sitemap):
 
     def items(self):
         return Business.objects.all()
-
-    def lastmod(self, obj):
-        return obj.pub_date
 
 class CountySitemap(Sitemap):
     changefreq = 'never'
@@ -19,15 +16,22 @@ class CountySitemap(Sitemap):
         return County.objects.all()
 
 class AreaSitemap(Sitemap):
-    changefreq = 'never'
+    changefreq = 'weekly'
     priority = 1
 
     def items(self):
         return Area.objects.all()
 
 class CategorySitemap(Sitemap):
-    changefreq = 'never'
+    changefreq = 'monthly'
     priority = 1
 
     def items(self):
         return Category.objects.all()
+
+class CustomBusinessGroupSitemap(Sitemap):
+    changefreq = 'daily'
+    priority = 1
+
+    def items(self):
+        return CustomBusinessGroup.objects.all()
