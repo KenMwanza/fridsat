@@ -35,16 +35,14 @@
 		    		<h1 class="heading-businesses"><b>{{ area }}</b></h1>
 		    	{% elif custom_business_group %}
 		    		<h1 class="heading-businesses"><b>{{ custom_business_group }}</b></h1>
-		    		<p class="lead">{{ custom_business_group.about|linebreaksbr }}</p>
-		    	{% else %}
-		    	<h1 class="heading-businesses"><b>{{ county }}</b></h1>
-				{% if custom_business_group %}
 				<ol class="breadcrumb">
 					<li><a href="{% url 'front:index' %}" class="active">Home</a></li>
 					<li><a href="{% url 'front:custom_business_groups' %}">Custom Business Groups</a></li>
 					<li>{{ custom_business_group.name|truncatechars:70 }}</li>
 				</ol>
-				{% endif %}
+		    		<p class="lead">{{ custom_business_group.about|linebreaksbr }}</p>
+		    	{% else %}
+		    	<h1 class="heading-businesses"><b>{{ county }}</b></h1>
 		    	{% endif %}
 				{% for business in businesses %}
 				{% get_comment_count for business as comment_count %}
