@@ -37,7 +37,7 @@
 		    		<h1 class="heading-businesses"><b>{{ custom_business_group }}</b></h1>
 				<ol class="breadcrumb">
 					<li><a href="{% url 'front:index' %}" class="active">Home</a></li>
-					<li><a href="{% url 'front:custom_business_groups' %}">Custom Business Groups</a></li>
+					<li><a href="{% url 'front:custom_business_groups' %}">Business Lists</a></li>
 					<li>{{ custom_business_group.name|truncatechars:70 }}</li>
 				</ol>
 		    		<p class="lead">{{ custom_business_group.about|linebreaksbr }}</p>

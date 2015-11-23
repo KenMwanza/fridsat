@@ -68,34 +68,48 @@
                 </li>
                 {% else %}
                 <li>
-                  <button id="signup" data-target="#modal-signup" data-toggle="modal" class="btn btn-success navbar-btn btn-md">Sign Up</button>
+                  <button id="signup" data-target="#modal-signup" data-toggle="modal" class="btn btn-warning navbar-btn btn-md">Sign Up</button>
                 </li>
                 {% endif %}
               </ul>
             </div>
           </div>
         </nav>
-    		<div id="search-box">
+        <div id="row-index" class="row">
+          <div class="col-md-8">
           	<form id="index-search" action="/business/search?=" method="get">
               	<div class="input-group">
   	                <input type="text" name="q" class="form-control" placeholder="Search for hotels, supermarkets, Strathmore, hospital, garage, etc.">
   	                <span class="input-group-btn">
-  	                    <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+  	                    <button type="submit" class="btn">Search</button>
   	                </span>
                   </div>
           	</form>
+          	<div id="links-panel" class="panel panel-default">
+          		<div class="panel-body">
+                		<div class="row">
+                		{% for category in categories %}
+                   		<div class="col-md-3">
+                				<a href="{{ category.get_absolute_url }}" title="{{ category }}"><i class="{{ category.icon }} fa-2x"></i><p>{{ category }}</p></a>
+                			</div>
+                		{% endfor %}
+                		</div>
+            	</div>
+            </div>
+       		</div>
+          <div class="col-md-4">
+            <div id="cust-biz-links" class="panel panel-default">
+              <ul>
+                <li><h4><i class="fa fa-arrow-right"></i> Business Lists</h4></li>
+                {% if custom_lists %}
+                  {% for list in custom_lists %}
+                    <li><a href="{{ list.get_absolute_url }}">{{ list.name }}</a></li>
+                  {% endfor %}
+                {% endif %}
+              </ul>
+            </div>
+          </div>
         </div>
-      	<div id="links-panel" class="panel panel-default">
-      		<div class="panel-body">
-            		<div class="row">
-            		{% for category in categories %}
-               		<div class="col-md-3">
-            				<a href="{{ category.get_absolute_url }}" title="{{ category }}"><i class="{{ category.icon }} fa-2x"></i><p>{{ category }}</p></a>
-            			</div>
-            		{% endfor %}
-            		</div>
-        		</div>
-     		</div>
       </div>
       <div id="blob">
         <div class="container">

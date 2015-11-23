@@ -85,12 +85,23 @@ body {
 
 #index {
     width: 100%;
-    padding-bottom: 20px;
+    padding-bottom: 1px;
     background-image: url('/static/front/img/nairobi1.jpg');
+    background-repeat: no-repeat;
 }
 @media only screen and (min-width: 320px) and (max-width : 480px) {
   #index {
     background-image: url('/static/front/img/ptn.png');
+  } 
+}
+
+#index #row-index {
+  margin: 140px auto;
+  width: 70%;
+}
+@media only screen and (min-width: 320px) and (max-width : 480px) {
+  #index #row-index {
+    margin: 0 auto;
   } 
 }
 
@@ -104,20 +115,68 @@ body {
 }
 
 #index-search {
-    width: 100%;
-    padding: 15px;
-    margin: 150px auto;
-    background: #444;
+    padding: 10px;
+    margin: 0 auto;
+    margin-bottom: 140px;
     background: rgba(0,0,0,.2);
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
 }
 @media only screen and (min-width: 320px) and (max-width : 480px) {
   #index-search {
-    margin: 50px auto;
+    width: 100%;
     padding: 0;
   } 
 }
+
+#cust-biz-links {
+  padding: 0 0 1em 0;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  font-family: 'Trebuchet MS', 'Lucida Grande',
+   Verdana, Lucida, Geneva, Helvetica, 
+   Arial, sans-serif;
+ }
+ @media only screen and (min-width: 320px) and (max-width : 480px) {
+  #cust-biz-links {
+    margin: 0 auto;
+    width: 100%;
+  } 
+}
+
+#cust-biz-links ul li h4 i {
+  color: #00B2B2;
+}
+
+#cust-biz-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  }
+  
+#cust-biz-links li {
+  border-bottom: 1px solid #90bade;
+  margin: 0;
+}
+
+ #cust-biz-links li a {
+  display: block;
+  padding: 5px 5px 5px 0.5em;
+  border-left: 10px solid #00B2B2;
+  border-right: 10px solid #7CEEFE;
+  background-color: #21E4FF;
+  color: #fff;
+  text-decoration: none;
+  width: 100%;
+  } html>body #cust-biz-links li a {
+  width: auto;
+  } #cust-biz-links li a:hover {
+  border-left: 10px solid #1c64d1;
+  border-right: 10px solid #5ba3e0;
+  background-color: #2586d7;
+  color: #fff;
+  }
 
 #index-search input {
     float: left;    
@@ -159,11 +218,6 @@ body {
     border-radius: 0 3px 3px 0;      
     text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
 }
-@media only screen and (min-width: 320px) and (max-width : 480px) {
-  #index-search button {
-    width: 40px; 
-  } 
-}
 
 .container-fluid {
     background-color: #ffffff;
@@ -179,9 +233,13 @@ body {
 }
 
 #links-panel {
-    width: 80%;
     margin: 20px auto;
     border: none;
+}
+@media only screen and (min-width: 320px) and (max-width : 480px) {
+  #links-panel {
+    width: 100%;
+  } 
 }
 
 #links-panel .row div {
@@ -393,12 +451,6 @@ body {
     cursor: pointer;
     opacity: 0;
     filter: alpha(opacity=0);
-}
-
-#search-box {
-    width: 70%;
-    margin: 0 auto;
-    padding: 5px;
 }
 
 #panel-accounts {
