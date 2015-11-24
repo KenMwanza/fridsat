@@ -22,7 +22,7 @@
 	<h1 itemprop="name"><b>{{ business }}</b></h1>
 	<ol class="breadcrumb">
 		<li><a href="{% url 'front:index' %}" class="active">Home</a></li>
-		<li><a href="{{ category.get_absolute_url }}">{{ business.category|truncatechars:20 }}</a></li>
+		<li><a href="{{ category.get_absolute_url }}">{{ business.category|truncatechars:40 }}</a></li>
 		<li>{{ business.name|truncatechars:32 }}</li>
 	</ol>
 	<div class="row">
