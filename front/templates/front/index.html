@@ -44,7 +44,7 @@
                 </a>
               </ul>
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="/blog/">Blog</a></li>
+		            <li><a href="/blog/">Blog</a></li>
                 {% if areas %}
                 <li class="dropdown mega-dropdown">
                   <a href="#" class="dropdown-toggle index-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-map-marker"></i> Area <span class="caret"></span></a>
@@ -85,7 +85,7 @@
   	                </span>
                   </div>
           	</form>
-          	<div id="links-panel" class="panel panel-default">
+          	<div class="panel panel-default links-panel">
           		<div class="panel-body">
                 		<div class="row">
                 		{% for category in categories %}
@@ -95,6 +95,20 @@
                 		{% endfor %}
                 		</div>
             	</div>
+            </div>
+            <div class="panel panel-default links-panel">
+              <div class="panel-body">
+                    <h4>Featured Businesses</h4>
+                    <div class="row">
+                    {% for featured_business in featured_businesses %}
+                      <div class="col-md-3">
+                        <a href="{{ featured_business.get_absolute_url }}" title="{{ featured_business }}">
+                        <img src="{{ featured_business.image.url }}" alt="{{ featured_business.name }}" width="105" class="img-square">
+                        <p>{{ featured_business }}</p></a>
+                      </div>
+                    {% endfor %}
+                    </div>
+              </div>
             </div>
        		</div>
           <div class="col-md-4">

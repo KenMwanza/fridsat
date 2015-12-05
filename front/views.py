@@ -5,7 +5,16 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
 def index(request):
-    return render(request, 'front/index.html')
+    with open('featured.txt') as f:
+        featured =  map(int, f)
+        
+    featured_businesses = Business.objects.filter(pk__in=featured)
+
+    return render(request, 'front/index.html',
+            {
+                'featured_businesses': featured_businesses,
+            }
+        )
 
 def category(request, slug):
     category = get_object_or_404(Category, slug=slug)

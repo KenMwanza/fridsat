@@ -49,6 +49,7 @@ class Business(models.Model):
     def get_absolute_url(self):
         return "/%s/" % (self.slug)
 
+
 class County(models.Model):
     name = models.CharField(max_length=20, unique=True)
     slug = models.SlugField(max_length=1000, blank=True, null=True)
