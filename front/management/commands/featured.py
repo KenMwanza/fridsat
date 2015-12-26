@@ -1,6 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
 from front.models import Business
-import os
 
 class Command(BaseCommand):
     help = 'Fetches four random businesses to be featured'

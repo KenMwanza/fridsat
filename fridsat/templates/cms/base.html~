@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load cms_tags sekizai_tags %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -6,16 +7,19 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
         <link rel="stylesheet" href="{% static 'front/css/vendor/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">
+        <link rel="stylesheet" href="{% static 'accounts/css/vendor/bootstrap-social.css' %}">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{% block title %}{% endblock %} &laquo; Bizbay</title>
+        <title>{% block title %}{% page_attribute "page_title" %}{% endblock %} &laquo; Bizbay</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {% block head %}{% endblock %}
-        <link rel="stylesheet" href="{% static 'front/css/normalize.min.css' %}">
         <link rel="stylesheet" href="{% static 'front/css/main.css' %}">
         <link rel="shortcut icon" type="image/png" href="{% static 'front/img/favicon.png' %}"/>
+        {% render_block "css" %}
     </head>
     <body>
+    {% cms_toolbar %}
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -49,7 +53,7 @@
                 </span>
               </div>
             </form>
-            <ul class="nav navbar-nav navbar-right">              
+            <ul class="nav navbar-nav navbar-right">
               <li><a href="/blog/">Blog</a></li>
               {% if areas %}
               <li class="dropdown mega-dropdown">
@@ -93,18 +97,6 @@
         </div>
       </nav>
       {% endblock %}
-      <div class="adsense">	
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<!-- Bizbay Ads -->
-	<ins class="adsbygoogle"
-	     style="display:block"
-	     data-ad-client="ca-pub-8791874770865000"
-	     data-ad-slot="5204616774"
-	     data-ad-format="auto"></ins>
-	<script>
-	(adsbygoogle = window.adsbygoogle || []).push({});
-	</script>
-      </div>
 
       <div class="container">
       {% if user.has_usable_password == False %}
@@ -124,29 +116,27 @@
       {% endif %}
       {% block content %}{% endblock %}
       </div>
-      {% block footer %}
-    <footer class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <p><a href="/about/about-us/">About Bizbay</a></p>
-            <p><a href="/about/contacts/">Contact Bizbay</a></p>
-            <p><a href="{% url 'front:custom_business_groups' %}">Custom Business Groups</a></p>
-          </div>
-          <div class="col-md-4">
-            <p><a href="">FAQs</a></p>
-            <p><a href="/about/tos/">Terms of Service</a></p>
-            <p><a href="/blog/">Blog</a></p>
-          </div>
-          <div class="col-md-4">
-            <p><a href="/privacy-policy/">Privacy Policy</a></p>
-            <p><a href="">Content Guidelines</a></p>
-            <p>&copy; 2015 Bizbay, LLP. All Rights Reserved.</p>
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <p><a href="/about/about-us/">About Bizbay</a></p>
+              <p><a href="/about/contacts/">Contact Bizbay</a></p>
+              <p><a href="{% url 'front:custom_business_groups' %}">Custom Business Groups</a></p>
+            </div>
+            <div class="col-md-4">
+              <p><a href="">FAQs</a></p>
+              <p><a href="/about/tos/">Terms of Service</a></p>
+              <p><a href="/blog/">Blog</a></p>
+            </div>
+            <div class="col-md-4">
+              <p><a href="/privacy-policy/">Privacy Policy</a></p>
+              <p><a href="">Content Guidelines</a></p>
+              <p>&copy; 2015 Bizbay, LLP. All Rights Reserved.</p>
+            </div>
           </div>
         </div>
-      </div>
-    </footer>
-      {% endblock %}
+      </footer>
 
     <!-- Modal -->
     <div class="modal fade" id="modal-signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -188,11 +178,7 @@
       </div>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
     <script src="{% static 'front/js/vendor/bootstrap.min.js' %}"></script>
-    <script src="{% static 'front/js/plugins.js' %}"></script>
-    <script src="{% static 'front/js/chosen.jquery.min.js' %}"></script>
-    <script src="{% static 'front/js/main.js' %}"></script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
       <script>
@@ -206,6 +192,7 @@
           ga('send', 'pageview');
         }
       </script>
+    {% render_block "js" %}
     {% block js %}{% endblock %}
     </body>
 </html>
