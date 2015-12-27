@@ -97,6 +97,16 @@
         </div>
       </nav>
       {% endblock %}
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- Bizbay Ads -->
+	<ins class="adsbygoogle"
+	     style="display:block"
+	     data-ad-client="ca-pub-8791874770865000"
+	     data-ad-slot="5204616774"
+	     data-ad-format="auto"></ins>
+	<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
       <div class="container">
       {% if user.has_usable_password == False %}
